@@ -1,5 +1,7 @@
 import Head from "next/head";
-
+import { TodoForm } from "@/components/TodoForm";
+import { Header } from "@/components/Header";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 // Transit HTML page to React component here
 // class -> className
@@ -13,25 +15,9 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Todo List App</title>
       </Head>
-      <div>
-        <form id="form">
-          <h1>TODO LIST</h1>
-          <div className="input_group">
-            <input
-              type="text"
-              id="todo_input"
-              className="todo_input"
-              placeholder="Enter a new task"
-            />
-            <button type="submit" id="add_btn">
-              Add
-            </button>
-          </div>
-          <ul id="todo_list"></ul>
-        </form>
-
-        <button id="theme_toggle">Dark mode</button>
-      </div>
+      <Header />
+      <TodoForm />
+      <ThemeToggle />
     </div>
   );
 }

@@ -1,0 +1,58 @@
+
+/* ========================================
+   📋 Todoアイテム
+======================================== */
+.todo_item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid var(--border-color);
+  gap: 0.5rem;
+}
+
+/* ========================================
+   📝 Todoテキスト
+======================================== */
+.todo_text {
+  flex-grow: 1;
+  font-size: 16px;
+  color: var(--text-color);
+}
+
+/* ========================================
+   ✅ チェックボックス
+======================================== */
+.todo_checkbox {
+  margin-right: 0.5rem;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  cursor: pointer;
+  accent-color: var(--btn-bg);
+}
+
+.todo_checkbox:checked + .todo_text {
+  text-decoration: line-through;
+  color: var(--border-color);
+}
+
+/* ========================================
+   🗑️ 削除ボタン
+======================================== */
+.delete_btn {
+  padding: 5px 10px;
+  font-weight: bold;
+  cursor: pointer;
+
+  background-color: var(--delete-btn-bg);
+  color: var(--delete-btn-text);
+  border: 1px solid var(--delete-btn-border);
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.delete_btn:hover {
+  background-color: var(--delete-btn-text);
+  color: var(--delete-btn-bg);
+}
