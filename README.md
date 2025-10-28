@@ -1,40 +1,58 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# 📝 Todo List App
 
-## Getting Started
+I originally built this project using **HTML, CSS, and JavaScript**, but I’m now rebuilding it with **React (Next.js)** to practice component-based architecture and theme management.  
 
-First, run the development server:
+最初は HTML・CSS・JavaScript で制作していましたが、現在は **React（Next.js）** で再構築中です。  
+コンポーネント設計やテーマ管理の理解を深めるための学習プロジェクトです。
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🎯 Purpose / 目的
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+- To practice React and Next.js through a small-scale project  
+- React と Next.js の実践練習として  
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+---
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+## 🧩 Tech Stack / 技術
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- React  
+- Next.js  
+- JavaScript (ES6+)  
+- CSS Modules  
+- TailwindCSS (in progress)  
+- Node.js (v20)  
+- VS Code  
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## 🚀 Features / 機能
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
+- Add and delete tasks  
+- Mark tasks as completed (strikethrough)  
+- Dark mode toggle  
+- Component-based structure  
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+タスクの追加・削除、完了チェック（取り消し線）、ダークモード切り替えなどを実装。  
+コンポーネント単位で UI を管理しています。
+今後はEdit機能、日付設定機能（フィルター機能）を実装予定です。
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## ⚠️ Error Log / 解決法備忘録
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+### 🌀 TailwindCSS
+
+**問題・症状**  
+`@tailwind base` が使えず、ビルドエラーが発生。  
+
+**原因**  
+TailwindCSS v4 では `@tailwind base` が廃止されている。  
+
+**対応**  
+以下のように書き換え。  
+```css
+@import "tailwindcss/preflight";
+@import "tailwindcss/theme";
+@import "tailwindcss/utilities";
+
