@@ -6,45 +6,21 @@
   position: fixed;
   top: 1rem;
   right: 1rem;
-
   padding: 0.3rem 0.5rem;
   font-size: 0.5rem;
   cursor: pointer;
   z-index: 999;
   overflow: hidden;
-
   background-color: var(--bg-color);
   color: var(--accent-color);
-
   border: none;
   border-bottom: 1px solid var(--accent-color);
-
-  transition: background-color 0.3s ease;
-  /* 疑似要素用にrelativeつけないといけない時もあるけど、
-     今回は絶対位置なのでつけなくてOK */
-  /* position: relative; はつけていません */
-}
-
-/* 疑似要素で背景スライドを実現 */
-.theme_toggle::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 0%;
-  height: 100%;
-  background-color: var(--accent-color);
-  z-index: -1;
-  transition: width 0.3s ease;
-}
-
-/* ホバー時の背景スライド + テキスト色反転 */
-.theme_toggle:hover::before {
-  width: 100%;
+  /* transition: background-color 0.3s ease; */
 }
 
 .theme_toggle:hover {
   color: var(--btn-text);
+  background-color: var(--accent-color);
 }
 
 /* ========================================
