@@ -1,4 +1,3 @@
-// components/Header.jsx
 import style from "@/components/Header.module.css";
 
 export function Header() {
