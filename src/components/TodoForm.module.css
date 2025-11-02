@@ -2,21 +2,21 @@
 /* ========================================
    📥 入力グループ（入力＋ボタン）
 ======================================== */
-.input_group {
+.inputGroup {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 @media (min-width: 600px) {
-  .input_group {
+  .inputGroup {
     flex-direction: row;
     justify-content: center;
     align-items: center;
     gap: 1rem;
   }
 
-  .input_group .todo_input {
+  .inputGroup .todoInput {
     margin-bottom: 0;
   }
 }
@@ -24,7 +24,7 @@
 /* ========================================
    📝 入力欄・リスト共通
 ======================================== */
-.todo_input{
+.todoInput{
   width: 90%;
   max-width: 300px;
   height: 40px;
@@ -33,7 +33,7 @@
 /* ========================================
    📝 入力欄
 ======================================== */
-.todo_input {
+.todoInput {
   border: none;
   border-bottom: 1px solid var(--border-color);
   background-color: var(--input-bg);
@@ -46,7 +46,7 @@
 /* ========================================
    🔘 追加ボタン
 ======================================== */
-.add_btn {
+.addBtn {
   padding: 0.4rem 0.8rem;
   font-size: 14px;
   font-weight: 600;
@@ -58,13 +58,13 @@
   transition: all 0.2s ease-in-out;
 }
 
-.add_btn:hover {
+.addBtn:hover {
   background-color: var(--bg-color);
   color: var(--btn-bg);
   border: 2px solid var(--btn-bg);
 }
 
-.add_btn:active {
+.addBtn:active {
   transform: scale(0.98); /* ほんの少し縮むとカチッと感UP */
   box-shadow: none;       /* 影を消して引き締める */
 }

@@ -1,11 +1,29 @@
 import style from "@/components/TodoItem.module.css"
 
-export function TodoItem() {
+// task.id/text/completed
+
+export function TodoItem({ task, toggleTask, deleteTask, editTask }) {
   return (
-    <li className={style.todo_item}>
-      <input type="checkbox" className={style.todo_checkbox} />
-      <span className={style.todo_text}></span>
-      <button className={style.delete_btn}>Delete</button>
+    <li className={style.todoItem}>
+      <input
+        type="checkbox"
+        className={style.todoCheckbox}
+        checked={task.completed}
+        onChange={() => toggleTask(task.id)} />
+      <span
+        className={style.todoText}
+      >{task.text}</span>
+      <button
+        className={style.deleteBtn}
+        onClick={() => deleteTask(task.id)}
+      >
+        Delete
+      </button>
+      <button
+        className={style.editTask}
+        onClick={() => editTask(task.id)}
+      >
+        Edit</button>
     </li>
   );
 }

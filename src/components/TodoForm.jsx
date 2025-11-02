@@ -9,7 +9,7 @@ export function TodoForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if(!currentTask) return; // 入力がなければ何もしない
+    if (!currentTask) return; // 入力がなければ何もしない
 
     const newTaskObj = { // 入力がある場合新しいtaskオブジェクトを作成
       id: Date.now(),
@@ -23,7 +23,7 @@ export function TodoForm() {
 
   useEffect(() => {
     localStorage.setItem("todos", JSON.stringify(todoList));
-  },[todoList])
+  }, [todoList])
 
   useEffect(() => {
     const savedTodos = JSON.parse(localStorage.getItem("todos"));
@@ -34,19 +34,21 @@ export function TodoForm() {
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <div className={style.input_group}>
+        <div className={style.inputGroup}>
           <input
             type="text"
-            value={currentTask || ""}
+            value={currentTask}
             onChange={(e) => setCurrentTask(e.target.value)}
-            className={style.todo_input}
+            className={style.todoInput}
             placeholder="Enter a new task"
           />
-          <button type="submit" className={style.add_btn}>
+          <button type="submit" className={style.addBtn}>
             Add
           </button>
         </div>
-        <TodoList />
+        <TodoList
+          todoList={todoList}
+          setTodoList={setTodoList} />
       </form>
     </div>
   );
