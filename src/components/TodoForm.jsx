@@ -1,11 +1,21 @@
+"use client";
+
 import { TodoList } from "@/components/TodoList.jsx";
 import { useEffect, useState } from "react";
 import style from "@/components/TodoForm.module.css";
 
 export function TodoForm() {
 
-  const [todoList, setTodoList] = useState([]); // todoListは配列
+  const [todoList, setTodoList] = useState([]) // todoListは配列
   const [currentTask, setCurrentTask] = useState(""); // currentTaskは文字列
+
+  // 初回マウント時のみ localStorage から復元
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const saved = localStorage.getItem("todos");
+      if (saved) setTodoList(JSON.parse(saved));
+    }
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -21,14 +31,13 @@ export function TodoForm() {
     setCurrentTask("")
   }
 
+  // リストが変わるたび保存
   useEffect(() => {
-    localStorage.setItem("todos", JSON.stringify(todoList));
-  }, [todoList])
+    if (typeof window !== "undefined") {
+      localStorage.setItem("todos", JSON.stringify(todoList));
+    }
+  }, [todoList]);
 
-  useEffect(() => {
-    const savedTodos = JSON.parse(localStorage.getItem("todos"));
-    if (savedTodos) setTodoList(savedTodos);
-  }, []);
 
 
   return (
