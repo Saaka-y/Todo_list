@@ -1,3 +1,4 @@
+import { TodayDate } from "@/components/TodayDate";
 import { TodoItem } from "@/components/TodoItem";
 import style from "@/components/TodoList.module.css"
 
@@ -25,16 +26,20 @@ export function TodoList({ todoList, setTodoList }) {
   }
 
   return (
-    <ul className={style.todoList}>
-      {todoList.map(task => (
-        <TodoItem
-          key={task.id}
-          task={task}
-          toggleTask={toggleTask}
-          deleteTask={deleteTask}
-          editTask={editTask}
-        />
-      ))}
-    </ul>
+    <div>
+      
+      <ul className={style.todoList}>
+        <TodayDate />
+        {todoList.map(task => (
+          <TodoItem
+            key={task.id}
+            task={task}
+            toggleTask={toggleTask}
+            deleteTask={deleteTask}
+            editTask={editTask}
+          />
+        ))}
+      </ul>
+    </div>
   );
 }
