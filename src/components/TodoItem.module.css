@@ -1,13 +1,12 @@
-
 /* ========================================
-   📋 Todoアイテム
+todo item
 ======================================== */
 .todoItem {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   margin: 1rem auto;
-  padding: 10px;
+  padding: 16px;
   border: 0.5px solid var(--border-color);
   border-radius: 10px;
   gap: 0.5rem;
@@ -15,16 +14,20 @@
 }
 
 /* ========================================
-   📝 Todoテキスト
+todo text
 ======================================== */
 .todoText {
-  flex-grow: 1;
+  flex: 1 1 auto;
   font-size: 0.8rem;
   color: var(--text-color);
+  line-height: 1.4;
+  white-space: normal;
+  word-break: break-word;
+  overflow-wrap: anywhere;
 }
 
 /* ========================================
-   ✅ チェックボックス
+checkbox
 ======================================== */
 .todoCheckbox {
   margin-right: 0.5rem;
@@ -35,13 +38,13 @@
   accent-color: var(--btn-bg);
 }
 
-.todoCheckbox:checked + .todoText {
+.todoCheckbox:checked+.todoText {
   text-decoration: line-through;
   color: var(--border-color);
 }
 
 /* ========================================
-   🗑️ 削除ボタン
+delete button
 ======================================== */
 .deleteBtn {
   padding: 5px;
@@ -59,7 +62,7 @@
 }
 
 /* ========================================
-   📝 編集ボタン、編集テキスト
+edit button
 ======================================== */
 .editBtn {
   padding: 5px;
@@ -76,6 +79,16 @@
   color: var(--edit-btn-bg);
 }
 
+.todoEditInput {
+  margin-left: 36px;
+  flex-grow: 1;
+  font-size: 1rem;
+  color: var(--text-color);
+}
+
+/* ========================================
+save button
+======================================== */
 .saveBtn {
   padding: 5px;
   cursor: pointer;
@@ -89,11 +102,4 @@
 .saveBtn:hover {
   background-color: var(--edit-btn-text);
   color: var(--edit-btn-bg);
-}
-
-.todoEditInput {
-  margin-left: 36px;
-  flex-grow: 1;
-  font-size: 1rem;
-  color: var(--text-color);
 }
