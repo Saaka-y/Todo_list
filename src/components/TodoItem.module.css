@@ -26,6 +26,17 @@ todo text
   overflow-wrap: anywhere;
 }
 
+@media (min-width: 600px) {
+  .todoText {
+   font-size: 1rem;
+  }
+
+  .todoItem {
+    font-size: 1rem;
+    padding-bottom: 32px;
+  }
+}
+
 /* ========================================
 checkbox
 ======================================== */
@@ -79,12 +90,25 @@ edit button
   color: var(--edit-btn-bg);
 }
 
+.todoItemEditing {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin: 1rem auto;
+  padding: 16px;
+  border: 1px solid var(--btn-bg);
+  border-radius: 10px;
+  background-color: var(--todo-bg);
+  gap: 0.5rem;
+}
+
 .todoEditInput {
   margin-left: 36px;
   flex-grow: 1;
-  font-size: 1rem;
   color: var(--text-color);
 }
+
+
 
 /* ========================================
 save button

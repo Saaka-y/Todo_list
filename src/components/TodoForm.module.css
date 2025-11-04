@@ -6,6 +6,13 @@ input group
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 80%;
+  max-width: 500px;
+  margin: 3rem auto;
+  background-color: var(--todo-bg);
+  padding: 16px;
+  border: 0.5px solid var(--border-color);
+  border-radius: 10px;
 }
 
 @media (min-width: 600px) {
@@ -61,3 +68,4 @@ add button
   transform: scale(0.98); /* ほんの少し縮むとカチッと感UP */
   box-shadow: none;       /* 影を消して引き締める */
 }
+

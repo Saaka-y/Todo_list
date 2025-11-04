@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 
 export function TodayDate() {
 
@@ -8,9 +10,10 @@ export function TodayDate() {
     day: "2-digit",
   });
 
-  // const [taskAmount, setTaskAmount] = useState("");
+  const [taskAmount, setTaskAmount] = useState(0);
 
-  const taskAmount = 3
+
+
 
   return (
     <div>

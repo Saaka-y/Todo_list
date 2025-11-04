@@ -3,11 +3,13 @@
 import { TodoList } from "@/components/TodoList.jsx";
 import { useEffect, useState } from "react";
 import style from "@/components/TodoForm.module.css";
+import { FaRegCalendarAlt } from "react-icons/fa";
 
 export function TodoForm() {
 
   const [todoList, setTodoList] = useState([]) // todoListは配列
   const [currentTask, setCurrentTask] = useState(""); // currentTaskは文字列
+  const [taskDate, setTaskDate] = useState("");
 
   // 初回マウント時のみ localStorage から復元
   useEffect(() => {
@@ -25,10 +27,12 @@ export function TodoForm() {
       id: Date.now(),
       text: currentTask,
       completed: false,
+      date: taskDate,
     }
 
     setTodoList([...todoList, newTaskObj]);
-    setCurrentTask("")
+    setCurrentTask("");
+    setTaskDate("");
   }
 
   // リストが変わるたび保存
@@ -38,8 +42,7 @@ export function TodoForm() {
     }
   }, [todoList]);
 
-
-
+  
   return (
     <div>
       <form onSubmit={handleSubmit}>
@@ -51,9 +54,20 @@ export function TodoForm() {
             className={style.todoInput}
             placeholder="Enter a new task"
           />
-          <button type="submit" className={style.addBtn}>
-            Add
-          </button>
+          <div className="flex justify-between items-center w-full max-w-[300px] ">
+            <input
+              type="date"
+              onChange={(e) => setTaskDate(e.target.value)}
+              required
+            />
+            <button
+              type="submit"
+              className={style.addBtn}
+            >
+              Add
+            </button>
+          </div>
+
         </div>
         <TodoList
           todoList={todoList}

@@ -15,7 +15,7 @@ export function TodoItem({ task, toggleTask, deleteTask, editTask }) {
   };
 
   return (
-    <li className={style.todoItem}>
+    <li className={`${isEditing ? style.todoItemEditing : style.todoItem} relative`}>
 
       {isEditing ? (
         <>
@@ -53,6 +53,7 @@ export function TodoItem({ task, toggleTask, deleteTask, editTask }) {
       >
         <FaRegTrashCan />
       </button>
+      <span className="absolute bottom-2 left-4 text-xs text-gray-400">{task.date}</span>
     </li>
   );
 }
