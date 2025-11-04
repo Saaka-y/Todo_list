@@ -18,15 +18,18 @@
    🎨 カラーテーマ変数（ライトモード）
 ======================================== */
 :root {
-  --bg-color: #fff;
+  --bg-color: rgb(241, 241, 241);
   --text-color: #000;
-  --input-bg: rgba(232, 185, 49, 0.29);
+  --todo-bg: rgb(253, 251, 251);
   --btn-bg: #E8B931;
   --btn-text: #fff;
-  --border-color: #ccc;
+  --border-color: #e3e3e3;
   --delete-btn-bg: #fff;
   --delete-btn-border: #e74c3c;
   --delete-btn-text: #e74c3c;
+  --edit-btn-bg: #fff;
+  --edit-btn-border: #E8B931;
+  --edit-btn-text: #E8B931;
   --accent-color: rgb(22, 111, 174);
 
   height: 100vh;
@@ -53,4 +56,6 @@ html.dark-mode {
   color: var(--text-color);
 }
 
-
+body {
+  min-width: 300px;
+}

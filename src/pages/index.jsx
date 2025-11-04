@@ -17,7 +17,7 @@ export default function Home() {
       </Head>
       <Header />
       <TodoForm />
-      <ThemeToggle />
+      {/* <ThemeToggle /> */}
     </div>
   );
 }

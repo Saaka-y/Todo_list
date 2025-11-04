@@ -24,7 +24,6 @@ export function TodoList({ todoList, setTodoList }) {
     );
   }
 
-
   return (
     <ul className={style.todoList}>
       {todoList.map(task => (
@@ -33,7 +32,8 @@ export function TodoList({ todoList, setTodoList }) {
           task={task}
           toggleTask={toggleTask}
           deleteTask={deleteTask}
-          editTask={editTask} />
+          editTask={editTask}
+        />
       ))}
     </ul>
   );

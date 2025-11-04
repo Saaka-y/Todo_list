@@ -6,9 +6,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin: 1rem auto;
   padding: 10px;
-  border-bottom: 1px solid var(--border-color);
+  border: 0.5px solid var(--border-color);
+  border-radius: 10px;
   gap: 0.5rem;
+  background-color: var(--todo-bg);
 }
 
 /* ========================================
@@ -16,7 +19,7 @@
 ======================================== */
 .todoText {
   flex-grow: 1;
-  font-size: 16px;
+  font-size: 0.8rem;
   color: var(--text-color);
 }
 
@@ -41,10 +44,8 @@
    🗑️ 削除ボタン
 ======================================== */
 .deleteBtn {
-  padding: 5px 10px;
-  font-weight: bold;
+  padding: 5px;
   cursor: pointer;
-
   background-color: var(--delete-btn-bg);
   color: var(--delete-btn-text);
   border: 1px solid var(--delete-btn-border);
@@ -55,4 +56,44 @@
 .deleteBtn:hover {
   background-color: var(--delete-btn-text);
   color: var(--delete-btn-bg);
+}
+
+/* ========================================
+   📝 編集ボタン、編集テキスト
+======================================== */
+.editBtn {
+  padding: 5px;
+  cursor: pointer;
+  background-color: var(--edit-btn-bg);
+  color: var(--edit-btn-text);
+  border: 1px solid var(--edit-btn-border);
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.editBtn:hover {
+  background-color: var(--edit-btn-text);
+  color: var(--edit-btn-bg);
+}
+
+.saveBtn {
+  padding: 5px;
+  cursor: pointer;
+  background-color: var(--edit-btn-bg);
+  color: var(--edit-btn-text);
+  border: 1px solid var(--edit-btn-border);
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.saveBtn:hover {
+  background-color: var(--edit-btn-text);
+  color: var(--edit-btn-bg);
+}
+
+.todoEditInput {
+  margin-left: 36px;
+  flex-grow: 1;
+  font-size: 1rem;
+  color: var(--text-color);
 }
