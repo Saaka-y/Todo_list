@@ -27,9 +27,11 @@ export function TodoList({ todoList, setTodoList }) {
 
   return (
     <div>
-      
+
       <ul className={style.todoList}>
-        <TodayDate />
+        <TodayDate
+          todoList={todoList}
+        />
         {todoList.map(task => (
           <TodoItem
             key={task.id}

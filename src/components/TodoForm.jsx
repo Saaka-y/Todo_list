@@ -8,7 +8,7 @@ export function TodoForm() {
 
   const [todoList, setTodoList] = useState([]) // todoListは配列
   const [currentTask, setCurrentTask] = useState(""); // currentTaskは文字列
-  const [taskDate, setTaskDate] = useState("");
+  const [taskDate, setTaskDate] = useState(""); // 文字列
 
   // 初回マウント時のみ localStorage から復元
   useEffect(() => {
@@ -27,7 +27,7 @@ export function TodoForm() {
       id: Date.now(),
       text: currentTask,
       completed: false,
-      date: taskDate,
+      date: taskDate, 
     }
 
     setTodoList([...todoList, newTaskObj]);

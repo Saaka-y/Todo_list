@@ -5,13 +5,9 @@ import { useState } from "react";
 
 export function Header() {
 
-  const [user, setUser] = useState({
-    name: "Saaka",
-  })
-
   return (
     <header className={style.header}>
-      <h1>Hello, {user.name}!</h1>
+      <h1>Hello!</h1>
     </header>
   );
 }
