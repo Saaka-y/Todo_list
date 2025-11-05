@@ -53,7 +53,7 @@ export function TodoItem({ task, toggleTask, deleteTask, editTask }) {
       >
         <FaRegTrashCan />
       </button>
-      <span className="absolute bottom-2 left-4 text-xs text-gray-400">{task.date}</span>
+      <span className="absolute bottom-1 left-4 text-xs text-gray-400">{task.date}</span>
     </li>
   );
 }
