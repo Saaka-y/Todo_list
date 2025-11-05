@@ -1,9 +1,12 @@
 
 /* ========================================
-   🅷1 見出し
+   header
 ======================================== */
 .header {
+  width: 80%;
+  max-width: 500px;
+  margin: 4rem auto 2rem;
+  font-size: 1rem;
   text-align: center;
-  margin: 60px auto;
   letter-spacing: 0;
 }
