@@ -3,7 +3,6 @@
 import { TodoList } from "@/components/TodoList.jsx";
 import { useEffect, useState } from "react";
 import style from "@/components/TodoForm.module.css";
-import { FaRegCalendarAlt } from "react-icons/fa";
 
 export function TodoForm() {
 
@@ -19,6 +18,7 @@ export function TodoForm() {
     }
   }, []);
 
+  // addボタンイベント
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!currentTask) return; // 入力がなければ何もしない
@@ -42,7 +42,16 @@ export function TodoForm() {
     }
   }, [todoList]);
 
-  
+  // 文字数制限
+  const handleInput = (e) => {  
+    if (e.target.value.length > 20) {
+      return;
+    } else {
+      setCurrentTask(e.target.value.trim())
+    }
+  }
+
+
   return (
     <div>
       <form onSubmit={handleSubmit}>
@@ -50,7 +59,7 @@ export function TodoForm() {
           <input
             type="text"
             value={currentTask}
-            onChange={(e) => setCurrentTask(e.target.value)}
+            onChange={handleInput}
             className={style.todoInput}
             placeholder="Enter a new task"
           />
