@@ -30,8 +30,8 @@ export function TodayDate({ todoList, page }) {
 
   return (
     <div>
-      <span className="ml-1 mb-4 text-sm">{todayStr}</span>
-      <span className="ml-4 text-xl text-gray-400 ">{page === "today" ? todayTaskAmount : upcimgnTaskAmount}</span>
+      <span className="ml-1 mb-4 text-sm">{page === "upcoming" ? `You have ${upcimgnTaskAmount} tasks left.` : todayStr}</span>
+      <span className="ml-4 text-xl text-gray-400 ">{page === "today" ? todayTaskAmount : null}</span>
     </div>
   );
 }
