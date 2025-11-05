@@ -45,7 +45,7 @@ export function TodoForm({ todoList, setTodoList, page }) {
             className={style.todoInput}
             placeholder="Enter a new task"
           />
-          <div className="flex justify-between items-center w-full max-w-[300px] ">
+          <div className="flex justify-between items-center w-full max-w-[300px] text-gray-400 text-sm">
             <input
               type="date"
               value={taskDate}
