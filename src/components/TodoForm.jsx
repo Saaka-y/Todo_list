@@ -1,47 +1,29 @@
 "use client";
 
 import { TodoList } from "@/components/TodoList.jsx";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import style from "@/components/TodoForm.module.css";
 
-export function TodoForm() {
-
-  const [todoList, setTodoList] = useState([]) // todoListは配列
+export function TodoForm({ todoList, setTodoList, page }) {
   const [currentTask, setCurrentTask] = useState(""); // currentTaskは文字列
   const [taskDate, setTaskDate] = useState(""); // 文字列
-
-  // 初回マウント時のみ localStorage から復元
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      const saved = localStorage.getItem("todos");
-      if (saved) setTodoList(JSON.parse(saved));
-    }
-  }, []);
 
   // addボタンイベント
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!currentTask) return; // 入力がなければ何もしない
-    if (!taskDate) return;
+    if (!currentTask || !taskDate) return; // 入力がなければ何もしない
 
-    const newTaskObj = { // 入力がある場合新しいtaskオブジェクトを作成
+    const newTask = { // 入力がある場合新しいtaskオブジェクトを作成
       id: Date.now(),
       text: currentTask,
       completed: false,
       date: taskDate,
     }
 
-    setTodoList([...todoList, newTaskObj]);
+    setTodoList(prev => [...prev, newTask]);
     setCurrentTask("");
     setTaskDate("");
   }
-
-  // リストが変わるたび保存
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      localStorage.setItem("todos", JSON.stringify(todoList));
-    }
-  }, [todoList]);
 
   // 文字数制限
   const handleInput = (e) => {
@@ -51,7 +33,6 @@ export function TodoForm() {
       setCurrentTask(e.target.value.trim())
     }
   }
-
 
   return (
     <div>
@@ -71,18 +52,15 @@ export function TodoForm() {
               onChange={(e) => setTaskDate(e.target.value)}
               required
             />
-            <button
-              type="submit"
-              className={style.addBtn}
-            >
+            <button type="submit" className={style.addBtn}>
               Add
             </button>
           </div>
-
         </div>
         <TodoList
           todoList={todoList}
-          setTodoList={setTodoList} />
+          setTodoList={setTodoList}
+          page={page} />
       </form>
     </div>
   );

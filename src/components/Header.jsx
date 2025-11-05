@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 // to be updated with setUser
 
 export function Header() {
-  const quotes = [
+  const greetings = [
     "Let's tackle your tasks today!",
     "Ready to get things done?",
     "Your tasks await!",
@@ -15,8 +15,9 @@ export function Header() {
   const [message, setMessage] = useState("")
 
   useEffect(() => {
-    const index = Math.floor(Math.random() * quotes.length);
-    setMessage(quotes[index]);
+    const index = Math.floor(Math.random() * greetings.length);
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setMessage(greetings[index]);
   }, [])
 
   return (

@@ -5,7 +5,11 @@ import { ThemeToggle } from "@/components/ThemeToggle";
 import Link from "next/link";
 
 
-export default function Home() {
+export default function Home({ todoList, setTodoList }) {
+
+  const today = new Date().toISOString().split("T")[0];
+  const todayTodos = todoList.filter((todo) => todo.date === today);
+
   return (
     <div>
       <Head>
@@ -17,7 +21,10 @@ export default function Home() {
         Upcoming tasks
       </Link>
       <Header />
-      <TodoForm />
+      <TodoForm
+        todoList={todayTodos}
+        setTodoList={setTodoList} 
+        page={"today"}/>
       {/* <ThemeToggle /> */}
     </div>
   );

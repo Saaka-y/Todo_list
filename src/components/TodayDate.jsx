@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
 
-export function TodayDate({ todoList }) {
+export function TodayDate({ todoList, page }) {
 
   const date = new Date();
   const todayStr = date.toLocaleDateString("ja-JP", {
@@ -10,19 +10,28 @@ export function TodayDate({ todoList }) {
     day: "2-digit",
   });
 
-  const [taskAmount, setTaskAmount] = useState(0); // taskAmountは数字
+  const [todayTaskAmount, setTodayTaskAmount] = useState(0); // taskAmountは数字
+  const [upcimgnTaskAmount, setUpcomingTaskAmount] = useState(0);
+
+  const todayISO = date.toISOString().split("T")[0];
 
   useEffect(() => {
-    const todayISO = date.toISOString().split("T")[0];
     const todayTodos = todoList.filter(task => task.date === todayISO)
-    setTaskAmount(todayTodos.length)
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setTodayTaskAmount(todayTodos.length)
+  }, [todoList])
+
+  useEffect(() => {
+    const upcomingTodos = todoList.filter(task => task.date !== todayISO)
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setUpcomingTaskAmount(upcomingTodos.length)
   }, [todoList])
 
 
   return (
     <div>
       <span className="ml-1 mb-4 text-sm">{todayStr}</span>
-      <span className="ml-4 text-xl text-gray-400 ">{taskAmount}</span>
+      <span className="ml-4 text-xl text-gray-400 ">{page === "today" ? todayTaskAmount : upcimgnTaskAmount}</span>
     </div>
   );
 }

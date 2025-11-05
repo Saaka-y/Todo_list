@@ -1,11 +1,14 @@
-// all tasks except today's here
+// Upcoming.jsx
 import Head from "next/head";
 import { TodoForm } from "@/components/TodoForm";
-import { Header } from "@/components/Header";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import Link from "next/link";
 
-export default function Upcoming() {
+export default function Upcoming({ todoList, setTodoList }) {
+
+  const today = new Date().toISOString().split("T")[0];
+  const upcomingTodos = todoList.filter((todo) => todo.date > today);
+
   return (
     <div>
       <Head>
@@ -16,8 +19,10 @@ export default function Upcoming() {
       <Link href="/">
         Today&apos;s tasks
       </Link>
-      <Header />
-      <TodoForm />
+      <TodoForm
+        todoList={upcomingTodos}
+        setTodoList={setTodoList}
+        page={"upcoming"} />
       {/* <ThemeToggle /> */}
     </div>
   );

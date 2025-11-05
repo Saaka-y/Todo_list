@@ -3,7 +3,7 @@ import { TodoItem } from "@/components/TodoItem";
 import style from "@/components/TodoList.module.css"
 
 
-export function TodoList({ todoList, setTodoList }) {
+export function TodoList({ todoList, setTodoList, page }) {
 
   const toggleTask = (id) => {
     setTodoList(prev =>
@@ -31,6 +31,7 @@ export function TodoList({ todoList, setTodoList }) {
       <ul className={style.todoList}>
         <TodayDate
           todoList={todoList}
+          page={page}
         />
         {todoList.map(task => (
           <TodoItem
