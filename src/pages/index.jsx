@@ -8,7 +8,7 @@ import Link from "next/link";
 export default function Home({ todoList, setTodoList }) {
 
   const today = new Date().toISOString().split("T")[0];
-  const todayTodos = todoList.filter((todo) => todo.date === today);
+  const todayTodos = todoList.filter((todo) => todo.date === today && !todo.completed);
 
   return (
     <div>

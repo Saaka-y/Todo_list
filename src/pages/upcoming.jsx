@@ -7,7 +7,7 @@ import Link from "next/link";
 export default function Upcoming({ todoList, setTodoList }) {
 
   const today = new Date().toISOString().split("T")[0];
-  const upcomingTodos = todoList.filter((todo) => todo.date > today);
+  const upcomingTodos = todoList.filter((todo) => todo.date > today && !todo.completed);
 
   return (
     <div>
