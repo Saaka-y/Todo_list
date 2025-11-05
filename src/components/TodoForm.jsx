@@ -22,12 +22,13 @@ export function TodoForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!currentTask) return; // 入力がなければ何もしない
+    if (!taskDate) return;
 
     const newTaskObj = { // 入力がある場合新しいtaskオブジェクトを作成
       id: Date.now(),
       text: currentTask,
       completed: false,
-      date: taskDate, 
+      date: taskDate,
     }
 
     setTodoList([...todoList, newTaskObj]);
@@ -43,7 +44,7 @@ export function TodoForm() {
   }, [todoList]);
 
   // 文字数制限
-  const handleInput = (e) => {  
+  const handleInput = (e) => {
     if (e.target.value.length > 20) {
       return;
     } else {
@@ -66,6 +67,7 @@ export function TodoForm() {
           <div className="flex justify-between items-center w-full max-w-[300px] ">
             <input
               type="date"
+              value={taskDate}
               onChange={(e) => setTaskDate(e.target.value)}
               required
             />
