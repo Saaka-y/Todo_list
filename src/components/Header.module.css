@@ -1,0 +1,17 @@
+
+/* ========================================
+  header
+======================================== */
+.header {
+  width: 80%;
+  max-width: 500px;
+  margin: 4rem auto 2rem;
+  font-size: 1rem;
+  text-align: center;
+  letter-spacing: 0;
+}
+
+.header h1 {
+  color: var(--text-color);
+  transition: color 0.3s ease;
+}

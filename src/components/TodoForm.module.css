@@ -1,0 +1,43 @@
+/* ========================================
+スタイル管理ルール（Tailwind + CSS Modules）
+-------------------------------------------
+1️⃣ レイアウト（flex, gap, margin, borderなど）→ Tailwind管理  
+2️⃣ テキスト装飾・ボタンカラー・入力欄 → CSS Modules管理  
+3️⃣ 状態ごとのカラーやaccent-color → CSS Modules管理  
+======================================== */
+
+.todoInput{
+  width: 90%;
+  max-width: 300px;
+  height: 40px;
+  border: none;
+  border-bottom: 1px solid var(--border-color);
+  padding: 0 10px;
+  font-size: 16px;
+  margin-bottom: 20px;
+  color: var(--text-color);
+}
+
+.addBtn {
+  padding: 0.4rem 0.8rem;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--btn-text);
+  background-color: var(--btn-bg);
+  border: 2px solid var(--btn-bg);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.addBtn:hover {
+  background-color: var(--bg-color);
+  color: var(--btn-bg);
+  border: 2px solid var(--btn-bg);
+}
+
+.addBtn:active {
+  transform: scale(0.98);
+  box-shadow: none; 
+}
+

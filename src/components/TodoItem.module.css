@@ -1,0 +1,118 @@
+/* ========================================
+スタイル管理ルール（Tailwind + CSS Modules）
+-------------------------------------------
+1️⃣ レイアウト（flex, gap, margin, borderなど）→ Tailwind管理  
+2️⃣ テキスト装飾・ボタンカラー・入力欄 → CSS Modules管理  
+3️⃣ 状態ごとのカラーやaccent-color → CSS Modules管理  
+======================================== */
+
+/* ========================================
+todo text
+======================================== */
+.todoText {
+  flex: 1 1 auto;
+  font-size: 0.8rem;
+  color: var(--text-color);
+  line-height: 1.4;
+  white-space: normal;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
+
+@media (min-width: 600px) {
+  .todoText {
+    font-size: 1rem;
+  }
+}
+
+
+/* ========================================
+checkbox
+======================================== */
+.todoCheckbox {
+  margin-right: 0.5rem;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  cursor: pointer;
+  accent-color: var(--btn-bg);
+}
+
+.todoCheckbox:checked+.todoText {
+  text-decoration: line-through;
+  color: var(--border-color);
+}
+
+/* ========================================
+delete button
+======================================== */
+.deleteBtn {
+  padding: 5px;
+  cursor: pointer;
+  background-color: var(--delete-btn-bg);
+  color: var(--delete-btn-text);
+  border: 1px solid var(--delete-btn-border);
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.deleteBtn:hover {
+  background-color: var(--delete-btn-text);
+  color: var(--delete-btn-bg);
+}
+
+/* ========================================
+edit input
+======================================== */
+.todoEditInput {
+  margin-left: 36px;
+  flex-grow: 1;
+  min-width: 0;
+  color: var(--text-color);
+}
+
+
+/* ========================================
+buttons
+======================================== */
+.deleteBtn,
+.editBtn,
+.saveBtn {
+  padding: 5px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+/* delete button */
+.deleteBtn {
+  background-color: var(--delete-btn-bg);
+  color: var(--delete-btn-text);
+  border: 1px solid var(--delete-btn-border);
+}
+.deleteBtn:hover {
+  background-color: var(--delete-btn-text);
+  color: var(--delete-btn-bg);
+}
+
+/* edit button */
+.editBtn {
+  background-color: var(--edit-btn-bg);
+  color: var(--edit-btn-text);
+  border: 1px solid var(--edit-btn-border);
+}
+.editBtn:hover {
+  background-color: var(--edit-btn-text);
+  color: var(--edit-btn-bg);
+}
+
+/* save button */
+.saveBtn {
+  background-color: var(--edit-btn-bg);
+  color: var(--edit-btn-text);
+  border: 1px solid var(--edit-btn-border);
+}
+.saveBtn:hover {
+  background-color: var(--edit-btn-text);
+  color: var(--edit-btn-bg);
+}

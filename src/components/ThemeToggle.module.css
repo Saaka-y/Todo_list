@@ -1,0 +1,44 @@
+
+/* ========================================
+   🌓 テーマ切替ボタン
+======================================== */
+.theme_toggle {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  padding: 0.3rem 0.5rem;
+  font-size: 0.5rem;
+  cursor: pointer;
+  z-index: 999;
+  overflow: hidden;
+  background-color: var(--bg-color);
+  color: var(--accent-color);
+  border: none;
+  border-bottom: 1px solid var(--accent-color);
+  /* transition: background-color 0.3s ease; */
+}
+
+.theme_toggle:hover {
+  color: var(--btn-text);
+  background-color: var(--accent-color);
+}
+
+/* ========================================
+   🌓 ダークモード時のテーマ切替ボタン色
+======================================== */
+html.dark_mode .theme_toggle {
+  color: var(--accent-color); /* 明るいオレンジ */
+  border-bottom: 1px solid var(--accent-color);
+}
+
+html.dark_mode .theme_toggle::before {
+  background-color: var(--accent-color);
+}
+
+html.dark_mode .theme_toggle:hover::before {
+  width: 100%;
+}
+
+html.dark_mode .theme_toggle:hover {
+  color: var(--btn-text);
+}
