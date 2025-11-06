@@ -1,9 +1,9 @@
-import { TodayDate } from "@/components/ListMessage";
+import { ListMessage } from "@/components/ListMessage";
 import { TodoItem } from "@/components/TodoItem";
 import style from "@/components/TodoList.module.css"
 
 
-export function TodoList({ todoList, setTodoList, page }) {
+export function TodoList({ todoList, setTodoList, page, filterType }) {
 
   const toggleTask = (id) => {
     setTodoList(prev =>
@@ -25,15 +25,30 @@ export function TodoList({ todoList, setTodoList, page }) {
     );
   }
 
-  return (
-    <div>
+  let filteredTodoList;
+  const today = new Date().toISOString().split("T")[0];
 
-      <ul className={style.todoList}>
-        <TodayDate
+  if (filterType === "today") {
+    filteredTodoList = todoList.filter((todo) => todo.date === today && !todo.completed);
+  } else if (filterType === "upcoming") {
+    filteredTodoList = todoList.filter((todo) => todo.date > today && !todo.completed);
+  } else if (filterType === "expired") {
+    filteredTodoList = todoList.filter((todo) => todo.date < today && !todo.completed);
+  } else {
+    filteredTodoList = todoList;
+  }
+
+
+  return (
+    <div className="flex justify-center items-start w-full mt-4">
+      <ul className="w-4/5 max-w-[500px] mt-8 list-none">
+        <ListMessage
           todoList={todoList}
           page={page}
+          filteredTodoList={filteredTodoList}
+          filterType={filterType}
         />
-        {todoList.map(task => (
+        {filteredTodoList.map(task => (
           <TodoItem
             key={task.id}
             task={task}

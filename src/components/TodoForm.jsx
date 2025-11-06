@@ -1,6 +1,5 @@
 "use client";
 
-import { TodoList } from "@/components/TodoList.jsx";
 import { useState } from "react";
 import style from "@/components/TodoForm.module.css";
 
@@ -35,9 +34,8 @@ export function TodoForm({ todoList, setTodoList, page }) {
   }
 
   return (
-    <div>
       <form onSubmit={handleSubmit}>
-        <div className={style.inputGroup}>
+        <div className="flex flex-col items-center w-4/5 max-w-[500px] mx-auto my-4 bg-(--todo-bg) p-4 border border-(--border-color) rounded-xl md:flex-row md:justify-center md:items-center md:gap-4">
           <input
             type="text"
             value={currentTask}
@@ -57,11 +55,6 @@ export function TodoForm({ todoList, setTodoList, page }) {
             </button>
           </div>
         </div>
-        <TodoList
-          todoList={todoList}
-          setTodoList={setTodoList}
-          page={page} />
       </form>
-    </div>
   );
 }
