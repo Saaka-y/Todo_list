@@ -43,6 +43,12 @@ checkbox
   color: var(--border-color);
 }
 
+.fadeOut {
+  opacity: 0;
+  transform: translateX(10px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
 /* ========================================
 delete button
 ======================================== */

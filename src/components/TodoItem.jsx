@@ -8,12 +8,23 @@ import { FaRegTrashCan } from "react-icons/fa6"
 export function TodoItem({ task, toggleTask, deleteTask, editTask }) {
   const [isEditing, setIsEditing] = useState(false);
   const [editText, setEditText] = useState(task.text);
+  // const [isFading, setIsFading] = useState(false);
 
   const handleSave = () => {
     editTask(task.id, editText);
     setIsEditing(false);
   };
 
+  //   const handleToggle = () => {
+  //   toggleTask(task.id); 
+
+  //   if (!task.completed) {
+  //     setIsFading(true);
+  //   }
+  // };
+
+
+  // ${isFading ? style.fadeOut : ""}
   return (
     <li className={`
         relative
