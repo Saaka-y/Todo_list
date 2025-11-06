@@ -51,11 +51,11 @@ html.dark-mode {
   --delete-btn-border: #e7783c;
   --delete-btn-text: #fff;
   --accent-color: #ffa726;
-
   background-color: var(--bg-color);
   color: var(--text-color);
 }
 
 body {
   min-width: 300px;
+  height: 100%;
 }

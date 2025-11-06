@@ -22,7 +22,7 @@ export function Header() {
 
   return (
     <header className={style.header}>
-      <h1>{message}</h1>
+      <h1 className="text-lg md:text-xl font-semibold leading-relaxed">{message}</h1>
     </header>
   );
 }

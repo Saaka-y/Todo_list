@@ -1,6 +1,6 @@
 
 /* ========================================
-   header
+  header
 ======================================== */
 .header {
   width: 80%;
@@ -9,4 +9,9 @@
   font-size: 1rem;
   text-align: center;
   letter-spacing: 0;
+}
+
+.header h1 {
+  color: var(--text-color);
+  transition: color 0.3s ease;
 }

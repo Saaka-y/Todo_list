@@ -10,12 +10,22 @@ export function TodoItem({ task, toggleTask, deleteTask, editTask }) {
   const [editText, setEditText] = useState(task.text);
 
   const handleSave = () => {
-    editTask(task.id, editText); 
+    editTask(task.id, editText);
     setIsEditing(false);
   };
 
   return (
-    <li className={`${isEditing ? style.todoItemEditing : style.todoItem} relative`}>
+    <li className={`
+        relative
+        flex justify-between items-start gap-2
+        rounded-xl
+        border
+        ${isEditing ? "border-(--btn-bg)" : "border-(--border-color)"}
+        bg-(--todo-bg)
+        p-4
+        my-4
+        transition-all
+      `}>
 
       {isEditing ? (
         <>

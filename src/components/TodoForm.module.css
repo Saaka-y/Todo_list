@@ -1,36 +1,11 @@
-
 /* ========================================
-input group
+スタイル管理ルール（Tailwind + CSS Modules）
+-------------------------------------------
+1️⃣ レイアウト（flex, gap, margin, borderなど）→ Tailwind管理  
+2️⃣ テキスト装飾・ボタンカラー・入力欄 → CSS Modules管理  
+3️⃣ 状態ごとのカラーやaccent-color → CSS Modules管理  
 ======================================== */
-.inputGroup {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 80%;
-  max-width: 500px;
-  margin: 3rem auto;
-  background-color: var(--todo-bg);
-  padding: 16px;
-  border: 0.5px solid var(--border-color);
-  border-radius: 10px;
-}
 
-@media (min-width: 600px) {
-  .inputGroup {
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
-  }
-
-  .inputGroup .todoInput {
-    margin-bottom: 0;
-  }
-}
-
-/* ========================================
-input 
-======================================== */
 .todoInput{
   width: 90%;
   max-width: 300px;
@@ -43,9 +18,6 @@ input
   color: var(--text-color);
 }
 
-/* ========================================
-add button
-======================================== */
 .addBtn {
   padding: 0.4rem 0.8rem;
   font-size: 14px;
@@ -65,7 +37,7 @@ add button
 }
 
 .addBtn:active {
-  transform: scale(0.98); /* ほんの少し縮むとカチッと感UP */
-  box-shadow: none;       /* 影を消して引き締める */
+  transform: scale(0.98);
+  box-shadow: none; 
 }
 
