@@ -10,22 +10,24 @@ export default function Upcoming({ todoList, setTodoList }) {
   const upcomingTodos = todoList.filter((todo) => todo.date > today && !todo.completed);
 
   return (
-    <div className="min-h-screen overflow-y-auto">
+    <div className="min-h-screen flex flex-col">
       <Head>
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Upcoming tasks</title>
       </Head>
       <Header page={"upcoming"} />
-      <TodoForm
-        todoList={upcomingTodos}
-        setTodoList={setTodoList}
-        page={"upcoming"} />
-      <TodoList
-        todoList={todoList}
-        setTodoList={setTodoList}
-        page={"upcoming"}
-        filterType={"upcoming"} />
+      <div className="flex-1 overflow-y-auto">
+        <TodoForm
+          todoList={upcomingTodos}
+          setTodoList={setTodoList}
+          page={"upcoming"} />
+        <TodoList
+          todoList={todoList}
+          setTodoList={setTodoList}
+          page={"upcoming"}
+          filterType={"upcoming"} />
+      </div>
     </div>
   );
 }
