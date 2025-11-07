@@ -40,8 +40,8 @@ export function TodoList({ todoList, setTodoList, page, filterType }) {
 
 
   return (
-    <div className="flex justify-center items-start w-full mt-4">
-      <ul className="w-4/5 max-w-[500px] mt-8 list-none">
+    <div className="flex justify-center items-start w-full mt-2">
+      <ul className="w-4/5 max-w-[500px] list-none">
         <ListMessage
           todoList={todoList}
           page={page}
