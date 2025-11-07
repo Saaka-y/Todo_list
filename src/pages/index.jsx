@@ -2,7 +2,6 @@ import Head from "next/head";
 import { TodoForm } from "@/components/TodoForm";
 import { TodoList } from "@/components/TodoList";
 import { Header } from "@/components/Header";
-import Link from "next/link";
 
 
 export default function Home({ todoList, setTodoList }) {
@@ -17,10 +16,7 @@ export default function Home({ todoList, setTodoList }) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Today&apos;s tasks</title>
       </Head>
-      <Link href="/upcoming">
-        Upcoming tasks
-      </Link>
-      <Header />
+      <Header page={"today"}/>
       <TodoForm
         todoList={todayTodos}
         setTodoList={setTodoList}

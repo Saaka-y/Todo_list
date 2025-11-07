@@ -1,17 +1,56 @@
-
 /* ========================================
   header
 ======================================== */
 .header {
-  width: 80%;
-  max-width: 500px;
-  margin: 4rem auto 2rem;
-  font-size: 1rem;
+  width: 100%;
+  padding-top: 2rem;
+  font-size: 0.8rem;
+  background-color: var(--todo-bg);
   text-align: center;
   letter-spacing: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
 }
 
-.header h1 {
+.greeting {
+  display: block;
+  margin-top: 3rem;
+  font-size: 0.8rem;
+  text-align: center;
   color: var(--text-color);
   transition: color 0.3s ease;
+}
+
+
+.selectableTab,
+.currentPageTab {
+  padding: 1.4rem 1.2rem 0.5rem 2rem;
+  border-radius: 90% 10% 0 0;
+}
+
+@media(min-width: 600px) {
+  .greeting {
+    font-size: 1rem;
+    margin-top: 5rem;
+  }
+
+  .selectableTab,
+  .currentPageTab {
+    padding: 2.2rem 2.2rem 1rem 3rem;
+  }
+
+  .currentPageTab {
+    box-shadow: -4px 0 0px rgba(0, 0, 0, 0.2);
+  }
+}
+
+.currentPageTab {
+  background-color: var(--bg-color);
+  font-weight: bold;
+  box-shadow: -2px 0 0px rgba(0, 0, 0, 0.2);
+}
+
+.selectableTab {
+  cursor: pointer;
 }

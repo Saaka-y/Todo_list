@@ -1,9 +1,10 @@
 import style from "@/components/Header.module.css";
 import { useEffect, useState } from "react";
+import Link from "next/link";
 
 // to be updated with setUser
 
-export function Header() {
+export function Header({ page }) {
   const greetings = [
     "Let's tackle your tasks today!",
     "Ready to get things done?",
@@ -21,8 +22,25 @@ export function Header() {
   }, [])
 
   return (
-    <header className={style.header}>
-      <h1 className="text-lg md:text-xl font-semibold leading-relaxed">{message}</h1>
-    </header>
+    <><header className={style.header}>
+      <nav className="flex justify-end gap-x-2">
+        {page === "today" ? (
+          <>
+            <Link href="/upcoming" className={style.selectableTab}>Upcoming</Link>
+            <p className={style.currentPageTab}>Today</p>
+          </>
+        ) : (
+          <>
+            <p className={style.currentPageTab}>Upcoming</p>
+            <Link href="/" className={style.selectableTab}>Today</Link>
+          </>
+        )}
+
+
+      </nav>
+    </header >
+    <h1 
+      className={`${style.greeting} text-md md:text-xl leading-relaxed`}>{message}</h1>
+      </>
   );
 }

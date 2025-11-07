@@ -40,7 +40,7 @@ export function TodoForm({ setTodoList }) {
 
   return (
     <form onSubmit={handleSubmit}>
-      <div className="flex flex-col items-center w-4/5 max-w-[500px] mx-auto mb-8 bg-(--todo-bg) p-4 border border-(--border-color) rounded-xl md:flex-row md:justify-center md:items-center md:gap-4">
+      <div className="flex flex-col items-center w-4/5 max-w-[500px] mx-auto my-8 bg-(--todo-bg) p-4 border border-(--border-color) rounded-xl md:flex-row md:justify-center md:items-center md:gap-4">
         <input
           type="text"
           value={currentTask}
