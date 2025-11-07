@@ -1,4 +1,5 @@
 import "@/styles/globals.css";
+import "react-datepicker/dist/react-datepicker.css";
 import { useEffect, useState } from "react";
 
 export default function App({ Component, pageProps }) {

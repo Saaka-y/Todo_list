@@ -1,9 +1,12 @@
 "use client";
 
 import { useState } from "react";
+import { SlCalender } from "react-icons/sl";
+import DatePicker from "react-datepicker";
 import style from "@/components/TodoForm.module.css";
 
-export function TodoForm({ todoList, setTodoList, page }) {
+
+export function TodoForm({ setTodoList }) {
   const [currentTask, setCurrentTask] = useState(""); // currentTaskは文字列
   const [taskDate, setTaskDate] = useState(""); // 文字列
 
@@ -34,27 +37,37 @@ export function TodoForm({ todoList, setTodoList, page }) {
   }
 
   return (
-      <form onSubmit={handleSubmit}>
-        <div className="flex flex-col items-center w-4/5 max-w-[500px] mx-auto my-4 bg-(--todo-bg) p-4 border border-(--border-color) rounded-xl md:flex-row md:justify-center md:items-center md:gap-4">
-          <input
-            type="text"
-            value={currentTask}
-            onChange={handleInput}
-            className={style.todoInput}
-            placeholder="Enter a new task"
+    <form onSubmit={handleSubmit}>
+      <div className="flex flex-col items-center w-4/5 max-w-[500px] mx-auto my-4 bg-(--todo-bg) p-4 border border-(--border-color) rounded-xl md:flex-row md:justify-center md:items-center md:gap-4">
+        <input
+          type="text"
+          value={currentTask}
+          onChange={handleInput}
+          className={style.todoInput}
+          placeholder="Enter a new task"
+        />
+        <div className="flex justify-between items-center w-full max-w-[300px] text-gray-400 text-sm">
+          {/* <SlCalender
+            className="cursor-pointer"/> */}
+            <DatePicker
+            selected={taskDate}
+            onChange={(date) => setTaskDate(date)}
+            dateFormat="yyyy/MM/dd"
+            placeholderText="deadline"
+            className="px-2 py-1 text-gray-500 border border-(--border-color) rounded"
           />
-          <div className="flex justify-between items-center w-full max-w-[300px] text-gray-400 text-sm">
-            <input
-              type="date"
-              value={taskDate}
-              onChange={(e) => setTaskDate(e.target.value)}
-              required
-            />
-            <button type="submit" className={style.addBtn}>
-              Add
-            </button>
-          </div>
+          {/* <input
+            id="task-date-input"
+            type="date"
+            value={taskDate}
+            onChange={(e) => setTaskDate(e.target.value)}
+            required
+          /> */}
+          <button type="submit" className={style.addBtn}>
+            Add
+          </button>
         </div>
-      </form>
+      </div>
+    </form>
   );
 }
