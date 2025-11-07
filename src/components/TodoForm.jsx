@@ -8,7 +8,7 @@ import style from "@/components/TodoForm.module.css";
 
 export function TodoForm({ setTodoList }) {
   const [currentTask, setCurrentTask] = useState(""); // currentTaskは文字列
-  const [taskDate, setTaskDate] = useState(""); // 文字列
+  const [taskDate, setTaskDate] = useState(null); // 文字列
 
   // addボタンイベント
   const handleSubmit = (e) => {
@@ -19,7 +19,9 @@ export function TodoForm({ setTodoList }) {
       id: Date.now(),
       text: currentTask,
       completed: false,
-      date: taskDate,
+      date: new Date(taskDate.getTime() - taskDate.getTimezoneOffset() * 60000)
+        .toISOString()
+        .split("T")[0], // datepickerはUTCで保存するのでタイム補正が必要
     }
 
     setTodoList(prev => [...prev, newTask]);
@@ -47,22 +49,13 @@ export function TodoForm({ setTodoList }) {
           placeholder="Enter a new task"
         />
         <div className="flex justify-between items-center w-full max-w-[300px] text-gray-400 text-sm">
-          {/* <SlCalender
-            className="cursor-pointer"/> */}
-            <DatePicker
+          <DatePicker
             selected={taskDate}
             onChange={(date) => setTaskDate(date)}
             dateFormat="yyyy/MM/dd"
             placeholderText="deadline"
             className="px-2 py-1 text-gray-500 border border-(--border-color) rounded"
           />
-          {/* <input
-            id="task-date-input"
-            type="date"
-            value={taskDate}
-            onChange={(e) => setTaskDate(e.target.value)}
-            required
-          /> */}
           <button type="submit" className={style.addBtn}>
             Add
           </button>
