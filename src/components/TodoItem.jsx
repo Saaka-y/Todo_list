@@ -8,23 +8,25 @@ import { FaRegTrashCan } from "react-icons/fa6"
 export function TodoItem({ task, toggleTask, deleteTask, editTask }) {
   const [isEditing, setIsEditing] = useState(false);
   const [editText, setEditText] = useState(task.text);
-  // const [isFading, setIsFading] = useState(false);
+  const [isFading, setIsFading] = useState(false);
 
   const handleSave = () => {
     editTask(task.id, editText);
     setIsEditing(false);
   };
 
-  //   const handleToggle = () => {
-  //   toggleTask(task.id); 
+  const handleToggle = () => {
+    // フェードアウト開始
+    if (!task.completed) {
+      setIsFading(true);
+      // 3秒後に実際のトグル処理
+      setTimeout(() => toggleTask(task.id), 3000);
+    } else {
+      // 未完了に戻すときは即時
+      toggleTask(task.id);
+    }
+  };
 
-  //   if (!task.completed) {
-  //     setIsFading(true);
-  //   }
-  // };
-
-
-  // ${isFading ? style.fadeOut : ""}
   return (
     <li className={`
         relative
@@ -36,6 +38,7 @@ export function TodoItem({ task, toggleTask, deleteTask, editTask }) {
         p-4
         my-4
         transition-all
+        ${isFading ? style.fadeOut : ""}
       `}>
 
       {isEditing ? (
@@ -55,8 +58,8 @@ export function TodoItem({ task, toggleTask, deleteTask, editTask }) {
           <input
             type="checkbox"
             className={style.todoCheckbox}
-            checked={task.completed}
-            onChange={() => toggleTask(task.id)}
+            checked={task.completed || isFading} // フェードアウト中はチェック済みに見せる
+            onChange={handleToggle}
           />
           <span className={style.todoText}>{task.text}</span>
           <button

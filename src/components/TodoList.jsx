@@ -1,6 +1,6 @@
 import { ListMessage } from "@/components/ListMessage";
 import { TodoItem } from "@/components/TodoItem";
-import style from "@/components/TodoList.module.css"
+
 
 
 export function TodoList({ todoList, setTodoList, page, filterType }) {
