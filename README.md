@@ -70,7 +70,7 @@ This project is a **Todo List App** built with **React (Next.js)**, designed to 
 
 ## 🔗 Demo / デモ
 
-[View the live app on Vercel](https://your-vercel-url.vercel.app)
+[View the live app on Vercel](https://todo-list-eta-taupe.vercel.app/)
 
 ---
 
