@@ -7,7 +7,6 @@ import { Header } from "@/components/Header";
 export default function Home({ todoList, setTodoList }) {
 
   const today = new Date().toISOString().split("T")[0];
-  const todayTodos = todoList.filter((todo) => todo.date === today && !todo.completed);
 
   return (
     <div className="min-h-screen overflow-y-auto">
@@ -18,7 +17,6 @@ export default function Home({ todoList, setTodoList }) {
       </Head>
       <Header page={"today"}/>
       <TodoForm
-        todoList={todayTodos}
         setTodoList={setTodoList}
         page={"today"} />
       <div className="flex flex-col items-center gap-4 md:flex-row-reverse md:justify-center md:items-start">

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { SlCalender } from "react-icons/sl";
+import dayjs from "dayjs";
 import DatePicker from "react-datepicker";
 import style from "@/components/TodoForm.module.css";
 
@@ -19,9 +20,7 @@ export function TodoForm({ setTodoList }) {
       id: Date.now(),
       text: currentTask,
       completed: false,
-      date: new Date(taskDate.getTime() - taskDate.getTimezoneOffset() * 60000)
-        .toISOString()
-        .split("T")[0], // datepickerはUTCで保存するのでタイム補正が必要
+      date: dayjs(taskDate).format("YYYY-MM-DD")
     }
 
     setTodoList(prev => [...prev, newTask]);
@@ -52,7 +51,7 @@ export function TodoForm({ setTodoList }) {
           <DatePicker
             selected={taskDate}
             onChange={(date) => setTaskDate(date)}
-            dateFormat="yyyy/MM/dd"
+            dateFormat="yyyy-MM-dd"
             placeholderText="deadline"
             className="px-2 py-1 text-gray-500 border border-(--border-color) rounded"
           />

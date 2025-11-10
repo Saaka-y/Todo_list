@@ -7,7 +7,6 @@ import { Header } from "@/components/Header";
 export default function Upcoming({ todoList, setTodoList }) {
 
   const today = new Date().toISOString().split("T")[0];
-  const upcomingTodos = todoList.filter((todo) => todo.date > today && !todo.completed);
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -19,7 +18,6 @@ export default function Upcoming({ todoList, setTodoList }) {
       <Header page={"upcoming"} />
       <div className="flex-1 overflow-y-auto">
         <TodoForm
-          todoList={upcomingTodos}
           setTodoList={setTodoList}
           page={"upcoming"} />
         <TodoList
