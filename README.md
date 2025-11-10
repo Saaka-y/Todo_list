@@ -1,58 +1,82 @@
 # 📝 Todo List App
 
-I originally built this project using **HTML, CSS, and JavaScript**, but I’m now rebuilding it with **React (Next.js)** to practice component-based architecture and theme management.  
+This project is a **Todo List App** built with **React (Next.js)**, designed to practice component-based architecture, state management, and theme handling.
 
-最初は HTML・CSS・JavaScript で制作していましたが、現在は **React（Next.js）** で再構築中です。  
-コンポーネント設計やテーマ管理の理解を深めるための学習プロジェクトです。
+もともとは **HTML, CSS, JavaScript** で制作していましたが、学習を兼ねて **React（Next.js）** で再構築しました。  
+コンポーネント設計、状態管理、テーマ管理の理解を深める学習プロジェクトです。
 
 ---
 
 ## 🎯 Purpose / 目的
 
-- To practice React and Next.js through a small-scale project  
-- React と Next.js の実践練習として  
+- Practice React and Next.js through a small-scale project  
+- Learn state management, component design, and UX-focused development  
+- React と Next.js の実践練習  
+- useState / useEffect を駆使した状態管理や、UXを意識した設計の理解向上  
 
 ---
 
 ## 🧩 Tech Stack / 技術
 
-- React  
-- Next.js  
-- JavaScript (ES6+)  
-- CSS Modules  
-- TailwindCSS (in progress)  
-- Node.js (v20)  
-- VS Code  
+- **React**  
+- **Next.js**  
+- **JavaScript (ES6+)**  
+- **CSS Modules**  
+- **TailwindCSS** (for layout)  
+- **Node.js (v20)**  
+- **VS Code**
 
 ---
 
 ## 🚀 Features / 機能
 
-- Add and delete tasks  
-- Mark tasks as completed (strikethrough)  
-- Dark mode toggle  
-- Component-based structure  
-
-タスクの追加・削除、完了チェック（取り消し線）、ダークモード切り替えなどを実装。  
-コンポーネント単位で UI を管理しています。
-今後はEdit機能、日付設定機能（フィルター機能）を実装予定です。
+- Add and delete tasks / タスクの追加・削除  
+- Mark tasks as completed with **delayed state change** / 完了チェック（UIは先にチェック表示、状態変化は遅延）  
+- Display **expired tasks in red on today's page** / 今日のページで期限切れタスクを赤字表示  
+- Dark mode toggle with OS preference detection / OS設定に応じたダークモード切替  
+- Component-based UI structure / コンポーネント単位での UI 管理  
+- Filter tasks by date (`today`, `upcoming`, `expired`) / 日付別タスクフィルター  
+- Editable tasks (planned) / タスク編集機能（実装予定）  
 
 ---
 
-## ⚠️ Error Log / 解決法備忘録
+## 🎨 UX & Design / デザイン・UX
 
-### 🌀 TailwindCSS
+- Mobile-first design for **thumb-friendly navigation** / 親指で操作しやすいモバイル最適化  
+- Dark mode with **sufficient contrast** / ダークモードでも文字と背景のコントラストを確保  
+- Smooth transitions and clear visual feedback / スムーズなアニメーションと視覚的フィードバック  
+- **Immediate visual feedback on checkbox** before actual state changes for UX improvement / チェックボックスは即時反応し、状態更新は遅延させてUX向上  
+- **Expired tasks highlighted in red** for quick recognition / 期限切れタスクを赤字で表示し、ユーザーが一目で認識可能  
 
-**問題・症状**  
-`@tailwind base` が使えず、ビルドエラーが発生。  
+---
 
-**原因**  
-TailwindCSS v4 では `@tailwind base` が廃止されている。  
+## 💡 Learning Points / 学習のポイント
 
-**対応**  
-以下のように書き換え。  
-```css
-@import "tailwindcss/preflight";
-@import "tailwindcss/theme";
-@import "tailwindcss/utilities";
+- Used `useState` and `useEffect` to manage Todo list and persist data via `localStorage`  
+- Implemented **delayed toggle for better UX** (checkbox reacts immediately, state updates after a short delay)  
+- Designed **visual feedback for expired tasks** to improve user awareness  
+- Implemented **dark mode toggle** respecting system settings  
+- Learned **component-based structure** for maintainable and reusable UI  
+- Practiced conditional rendering, event handling, and dynamic class switching  
 
+- `useState` と `useEffect` を駆使した状態管理  
+- **チェックUIと状態更新のタイミングを分離**（UX向上の工夫）  
+- **期限切れタスクを赤字表示**（ユーザーが一目で期限切れを認識可能）  
+- localStorage によるデータ永続化  
+- コンポーネント再利用性と可読性の向上  
+- 条件付きレンダリング、イベント処理、クラス切替の理解  
+
+---
+
+## 🔗 Demo / デモ
+
+[View the live app on Vercel](https://your-vercel-url.vercel.app)
+
+---
+
+## 📂 Future Improvements / 今後の改善予定
+
+- Task editing and updating / タスク編集・更新機能  
+- Advanced filtering (by category or priority) / カテゴリ・優先度別の詳細フィルター  
+- Animation enhancements / アニメーション改善  
+- TailwindCSS migration for full styling consistency / TailwindCSS 完全移行
