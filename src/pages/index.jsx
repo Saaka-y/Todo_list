@@ -4,7 +4,7 @@ import { TodoList } from "@/components/TodoList";
 import { Header } from "@/components/Header";
 
 
-export default function Home({ todoList, setTodoList }) {
+export default function Home({ todoList, setTodoList, isDarkMode, setIsDarkMode }) {
 
   return (
     <div className="min-h-screen overflow-y-auto">
@@ -13,23 +13,27 @@ export default function Home({ todoList, setTodoList }) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Today&apos;s tasks</title>
       </Head>
-      <Header page={"today"}/>
+      <Header
+        page={"today"}
+        isDarkMode={isDarkMode}
+        setIsDarkMode={setIsDarkMode}
+      />
       <TodoForm
         setTodoList={setTodoList}
         page={"today"} />
       <div className="flex flex-col items-center gap-4 md:flex-row-reverse md:justify-center md:items-start">
-      <TodoList
-        todoList={todoList}
-        setTodoList={setTodoList}
-        page={"today"}
-        filterType={"today"}
-      />
-      <TodoList
-        todoList={todoList}
-        setTodoList={setTodoList}
-        page={"today"}
-        filterType={"expired"}
-      />
+        <TodoList
+          todoList={todoList}
+          setTodoList={setTodoList}
+          page={"today"}
+          filterType={"today"}
+        />
+        <TodoList
+          todoList={todoList}
+          setTodoList={setTodoList}
+          page={"today"}
+          filterType={"expired"}
+        />
       </div>
     </div>
   );

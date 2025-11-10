@@ -21,6 +21,7 @@
   --bg-color: rgb(241, 241, 241);
   --text-color: #000;
   --todo-bg: rgb(253, 251, 251);
+  --input-bg: rgb(253, 251, 251);
   --btn-bg: #E8B931;
   --btn-text: #fff;
   --border-color: #e3e3e3;
@@ -41,16 +42,20 @@
    🎨 カラーテーマ変数（ダークモード）
 ======================================== */
 html.dark-mode {
-  --bg-color: #121212;
-  --text-color: #ede7e7;
-  --input-bg: rgba(255, 255, 255, 0.1);
-  --btn-bg: #226ab3;
+  --bg-color: #1e1e1e;
+  --text-color: #e0e0e0;
+  --todo-bg: rgba(255, 255, 255, 0.08);
+  --input-bg: rgba(255, 255, 255, 0.08);
+  --btn-bg: #1a4b7c;
   --btn-text: #fff;
   --border-color: #444;
-  --delete-btn-bg: #e7783c;
-  --delete-btn-border: #e7783c;
+  --delete-btn-bg: #9a3226;
+  --delete-btn-border: #9a3226;
   --delete-btn-text: #fff;
-  --accent-color: #ffa726;
+  --edit-btn-bg: #bc832d;
+  --edit-btn-border: #bc832d;
+  --edit-btn-text: #fff;
+  --accent-color: #1a4b7c;
   background-color: var(--bg-color);
   color: var(--text-color);
 }

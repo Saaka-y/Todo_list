@@ -3,7 +3,7 @@
 ======================================== */
 .header {
   width: 100%;
-  padding-top: 2rem;
+  padding: 1.8rem 2rem 0 2rem;
   font-size: 0.8rem;
   background-color: var(--todo-bg);
   text-align: center;
@@ -23,10 +23,22 @@
 }
 
 
+.darkModeToggle,
 .selectableTab,
 .currentPageTab {
-  padding: 1.4rem 1.2rem 0.5rem 2rem;
-  border-radius: 90% 10% 0 0;
+  width: 100px;
+  padding: 0.4rem 0.6rem;
+  margin: 0 0 0.6rem;
+  border-radius: 10px;
+}
+
+.darkModeToggle {
+  color: var(--text-color);
+  transition: color 0.2s ease;
+}
+
+.darkModeToggle:active {
+  color: var(--accent-color);
 }
 
 @media(min-width: 600px) {
@@ -37,20 +49,17 @@
 
   .selectableTab,
   .currentPageTab {
-    padding: 2.2rem 2.2rem 1rem 3rem;
-  }
-
-  .currentPageTab {
-    box-shadow: -4px 0 0px rgba(0, 0, 0, 0.2);
+    width: 120px;
+    padding: 0.8rem 1rem;
   }
 }
 
 .currentPageTab {
   background-color: var(--bg-color);
   font-weight: bold;
-  box-shadow: -2px 0 0px rgba(0, 0, 0, 0.2);
 }
 
+.darkModeToggle,
 .selectableTab {
   cursor: pointer;
 }

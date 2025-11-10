@@ -4,7 +4,7 @@ import { TodoForm } from "@/components/TodoForm";
 import { TodoList } from "@/components/TodoList";
 import { Header } from "@/components/Header";
 
-export default function Upcoming({ todoList, setTodoList }) {
+export default function Upcoming({ todoList, setTodoList, isDarkMode, setIsDarkMode }) {
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -13,7 +13,11 @@ export default function Upcoming({ todoList, setTodoList }) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Upcoming tasks</title>
       </Head>
-      <Header page={"upcoming"} />
+      <Header
+        page={"upcoming"}
+        isDarkMode={isDarkMode}
+        setIsDarkMode={setIsDarkMode}
+      />
       <div className="flex-1 overflow-y-auto">
         <TodoForm
           setTodoList={setTodoList}
