@@ -6,8 +6,6 @@ import { Header } from "@/components/Header";
 
 export default function Upcoming({ todoList, setTodoList }) {
 
-  const today = new Date().toISOString().split("T")[0];
-
   return (
     <div className="min-h-screen flex flex-col">
       <Head>

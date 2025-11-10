@@ -6,8 +6,6 @@ import { Header } from "@/components/Header";
 
 export default function Home({ todoList, setTodoList }) {
 
-  const today = new Date().toISOString().split("T")[0];
-
   return (
     <div className="min-h-screen overflow-y-auto">
       <Head>

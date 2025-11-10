@@ -2,7 +2,6 @@ import { ListMessage } from "@/components/ListMessage";
 import { TodoItem } from "@/components/TodoItem";
 
 
-
 export function TodoList({ todoList, setTodoList, page, filterType }) {
 
   const toggleTask = (id) => {
