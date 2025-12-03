@@ -8,14 +8,19 @@ import style from "@/components/TodoForm.module.css";
 
 export function TodoForm({ setTodoList }) {
   const [currentTask, setCurrentTask] = useState(""); // currentTaskは文字列
-  const [taskDate, setTaskDate] = useState(null); // 文字列
+  const [taskDate, setTaskDate] = useState(null); // Dateオブジェクト 例）Wed Dec 03 2025 00:00:00 GMT+0900 (日本標準時)
 
-  // addボタンイベント
+  // add button event
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!currentTask || !taskDate) return; // 入力がなければ何もしない
+    if (!currentTask) return;
+    if (!taskDate) {
+      alert("Please set the deadline.");
+      return;
+    } 
 
-    const newTask = { // 入力がある場合新しいtaskオブジェクトを作成
+    // 入力がある場合新しいtaskオブジェクトを作成
+    const newTask = { 
       id: Date.now(),
       text: currentTask,
       completed: false,
@@ -24,17 +29,19 @@ export function TodoForm({ setTodoList }) {
 
     setTodoList(prev => [...prev, newTask]);
     setCurrentTask("");
-    setTaskDate("");
+    setTaskDate(null);
   }
 
   // 文字数制限
   const handleInput = (e) => {
-    if (e.target.value.length > 20) {
+    if (e.target.value.length > 40) {
       return;
     } else {
       setCurrentTask(e.target.value.trim())
     }
   }
+
+  console.log("タスクデイト：", taskDate)
 
   return (
     <form onSubmit={handleSubmit}>
@@ -51,7 +58,7 @@ export function TodoForm({ setTodoList }) {
             selected={taskDate}
             onChange={(date) => setTaskDate(date)}
             dateFormat="yyyy-MM-dd"
-            placeholderText="deadline"
+            placeholderText="Set the deadline"
             className="px-2 py-1 text-gray-500 border border-(--border-color) rounded"
           />
           <button type="submit" className={style.addBtn}>

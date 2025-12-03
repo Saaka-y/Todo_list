@@ -1,9 +1,9 @@
 /* ========================================
 スタイル管理ルール（Tailwind + CSS Modules）
 -------------------------------------------
-1️⃣ レイアウト（flex, gap, margin, borderなど）→ Tailwind管理  
-2️⃣ テキスト装飾・ボタンカラー・入力欄 → CSS Modules管理  
-3️⃣ 状態ごとのカラーやaccent-color → CSS Modules管理  
+親レイアウト（flex, gap, margin, borderなど）→ Tailwind  
+テキスト装飾・ボタンカラー・入力欄 → CSS Modules 
+状態ごとのカラーやaccent-color → CSS Modules
 ======================================== */
 
 .todoInput{

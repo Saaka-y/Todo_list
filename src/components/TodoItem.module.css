@@ -20,7 +20,7 @@ todo text
 }
 
 @media (min-width: 600px) {
-  .todoText {
+  .todoText, .todoEditInput {
     font-size: 1rem;
   }
 }
@@ -71,10 +71,12 @@ delete button
 edit input
 ======================================== */
 .todoEditInput {
+  font-size: 0.8rem;
   margin-left: 36px;
   flex-grow: 1;
   min-width: 0;
   color: var(--text-color);
+  text-decoration: underline;
 }
 
 

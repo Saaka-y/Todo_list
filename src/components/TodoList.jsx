@@ -16,10 +16,10 @@ export function TodoList({ todoList, setTodoList, page, filterType }) {
     setTodoList(prev => prev.filter(task => task.id !== id));
   }
 
-  const editTask = (id, newText) => {
+  const editTask = (id, newText, newDateString) => {
     setTodoList(prev =>
       prev.map(task =>
-        task.id === id ? { ...task, text: newText } : task
+        task.id === id ? { ...task, text: newText, date: newDateString } : task
       )
     );
   }
