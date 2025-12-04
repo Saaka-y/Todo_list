@@ -1,12 +1,11 @@
-"use client";
+//@/components/TodoForm.jsx
 
-import { useState } from "react";
+import style from "@/components/TodoForm.module.css";
 import dayjs from "dayjs";
 import DatePicker from "react-datepicker";
-import style from "@/components/TodoForm.module.css";
+import { useState } from "react";
 
-
-export function TodoForm({ setTodoList }) {
+export function TodoForm() {
   const [currentTask, setCurrentTask] = useState(""); // currentTaskは文字列
   const [taskDate, setTaskDate] = useState(null); // Dateオブジェクト 例）Wed Dec 03 2025 00:00:00 GMT+0900 (日本標準時)
 
