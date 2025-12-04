@@ -1,34 +1,20 @@
+//@/components/Header.jsx
+
 import style from "@/components/Header.module.css";
-import { useEffect, useState } from "react";
-import { CiLight, CiDark } from "react-icons/ci";
 import Link from "next/link";
+import { CiLight, CiDark } from "react-icons/ci";
+import { useGreeting } from "@/hooks/useGreeting";
+import { useDarkModeStore } from "@/stores/darkModeStore";
 
-export function Header({ page, isDarkMode, setIsDarkMode }) {
-  // show a random encouraging message
-  const greetings = [
-    "Let's tackle your tasks today!",
-    "Ready to get things done?",
-    "Your tasks await!",
-    "Time to make progress!",
-    "Let's make today productive!"
-  ];
-
-  const [message, setMessage] = useState("")
-
-  useEffect(() => {
-    const index = Math.floor(Math.random() * greetings.length);
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    setMessage(greetings[index]);
-  }, [])
+export function Header({ page }) {
+  const { message } = useGreeting();
+  const { isDarkMode, toggleDarkMode } = useDarkModeStore();
 
   return (
     <>
       <header className={style.header}>
         <nav className="flex justify-between gap-x-2">
-          <button
-            onClick={() => setIsDarkMode(prev => !prev)}
-            className={style.darkModeToggle}
-          >
+          <button onClick={toggleDarkMode} className="cursor-pointer">
             {isDarkMode ? (<CiLight size={24} />) : (<CiDark size={24} />)}
           </button>
           <div className="flex gap-2">

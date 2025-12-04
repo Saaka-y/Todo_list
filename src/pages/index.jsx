@@ -1,10 +1,12 @@
+//@/pages/index.jsx
+
 import Head from "next/head";
 import { TodoForm } from "@/components/TodoForm";
 import { TodoList } from "@/components/TodoList";
 import { Header } from "@/components/Header";
 
-
-export default function Home({ todoList, setTodoList, isDarkMode, setIsDarkMode }) {
+export default function Home() {
+  const PAGE = "today"
 
   return (
     <div className="min-h-screen overflow-y-auto">
@@ -14,27 +16,20 @@ export default function Home({ todoList, setTodoList, isDarkMode, setIsDarkMode 
         <title>Today&apos;s tasks</title>
       </Head>
       <Header
-        page={"today"}
-        isDarkMode={isDarkMode}
-        setIsDarkMode={setIsDarkMode}
+        page={PAGE}
       />
-      <TodoForm
-        setTodoList={setTodoList}
-        page={"today"} />
+      {/* <TodoForm
+        page={PAGE} />
       <div className="flex flex-col items-center gap-4 md:flex-row-reverse md:justify-center md:items-start">
         <TodoList
-          todoList={todoList}
-          setTodoList={setTodoList}
-          page={"today"}
-          filterType={"today"}
+          page={PAGE}
+          filterType={PAGE}
         />
         <TodoList
-          todoList={todoList}
-          setTodoList={setTodoList}
-          page={"today"}
+          page={PAGE}
           filterType={"expired"}
         />
-      </div>
+      </div> */}
     </div>
   );
 }

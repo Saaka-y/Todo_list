@@ -1,10 +1,12 @@
-// Upcoming.jsx
+// //@/pages/upcoming.jsx
+
 import Head from "next/head";
 import { TodoForm } from "@/components/TodoForm";
 import { TodoList } from "@/components/TodoList";
 import { Header } from "@/components/Header";
 
-export default function Upcoming({ todoList, setTodoList, isDarkMode, setIsDarkMode }) {
+export default function Upcoming() {
+  const PAGE = "upcoming";
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -14,19 +16,14 @@ export default function Upcoming({ todoList, setTodoList, isDarkMode, setIsDarkM
         <title>Upcoming tasks</title>
       </Head>
       <Header
-        page={"upcoming"}
-        isDarkMode={isDarkMode}
-        setIsDarkMode={setIsDarkMode}
+        page={PAGE}
       />
       <div className="flex-1 overflow-y-auto">
-        <TodoForm
-          setTodoList={setTodoList}
-          page={"upcoming"} />
+        {/* <TodoForm
+          page={PAGE} />
         <TodoList
-          todoList={todoList}
-          setTodoList={setTodoList}
-          page={"upcoming"}
-          filterType={"upcoming"} />
+          page={PAGE}
+          filterType={PAGE} /> */}
       </div>
     </div>
   );
