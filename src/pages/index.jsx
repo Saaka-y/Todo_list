@@ -18,18 +18,17 @@ export default function Home() {
       <Header
         page={PAGE}
       />
-      {/* <TodoForm
-        page={PAGE} />
+      <TodoForm page={PAGE} />
       <div className="flex flex-col items-center gap-4 md:flex-row-reverse md:justify-center md:items-start">
         <TodoList
-          page={PAGE}
-          filterType={PAGE}
-        />
-        <TodoList
-          page={PAGE}
-          filterType={"expired"}
-        />
-      </div> */}
+        page={PAGE}
+        filterType={PAGE}
+      />
+      <TodoList
+        page={PAGE}
+        filterType={"expired"}
+      />
+      </div>
     </div>
   );
 }

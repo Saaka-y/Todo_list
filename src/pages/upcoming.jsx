@@ -19,11 +19,8 @@ export default function Upcoming() {
         page={PAGE}
       />
       <div className="flex-1 overflow-y-auto">
-        {/* <TodoForm
-          page={PAGE} />
-        <TodoList
-          page={PAGE}
-          filterType={PAGE} /> */}
+        <TodoForm page={PAGE} />
+        <TodoList page={PAGE} filterType={PAGE} />
       </div>
     </div>
   );

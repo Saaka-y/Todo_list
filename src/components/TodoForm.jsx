@@ -6,7 +6,7 @@ import { useTodoStore } from "@/stores/todoStore";
 import { useTaskStore } from "@/stores/taskStore";
 
 export function TodoForm() {
-  const { setNewTodoList } = useTodoStore();
+  const { addTask } = useTodoStore();
   const { currentTaskText, currentTaskDate, setCurrentTaskText, setCurrentTaskDate, createTask, resetTask } = useTaskStore();
 
   // add button event
@@ -19,7 +19,7 @@ export function TodoForm() {
     }
     // 入力がある場合新しいtaskオブジェクトを作成
     const newTask = createTask();
-    setNewTodoList(newTask);
+    addTask(newTask);
     resetTask();
   }
 

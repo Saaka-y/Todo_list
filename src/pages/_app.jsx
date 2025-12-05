@@ -7,20 +7,22 @@ import { useDarkModeStore } from "@/stores/darkModeStore";
 import { useEffect } from "react";
 
 export default function App({ Component, pageProps }) {
-  const { todoList, isInitialized, initTodos, updateTodos } = useTodoStore();
+  const { todoList, isInitialized, initLocalStorage, updateLocalStorage } = useTodoStore();
   const { initDarkMode} = useDarkModeStore();
 
   useEffect(() => {
-    initTodos();
+    initLocalStorage();
   }, [])
 
   useEffect(() => {
-    updateTodos();
+    updateLocalStorage();
   }, [todoList, isInitialized])
 
   useEffect(() => {
     initDarkMode();
   },[])
+
+  console.log(todoList)
 
   return (
     <Component
