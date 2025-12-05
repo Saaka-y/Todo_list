@@ -1,38 +1,37 @@
-// TodoItem.jsx
-import { useState } from "react";
+// @/components/TodoItem.jsx
 import style from "@/components/TodoItem.module.css";
-import { FaRegEdit, FaRegSave } from "react-icons/fa";
-import { FaRegTrashCan } from "react-icons/fa6"
-import DatePicker from "react-datepicker";
 import dayjs from "dayjs";
+import { useState } from "react";
+import { useTodoStore } from "@/stores/todoStore";
+import { TodoItemEditor } from "@/components/TodoItemEditor";
+import { TodoItemView } from "@/components/TodoItemView";
 
-
-export function TodoItem({ task, toggleTask, deleteTask, editTask }) {
+export function TodoItem({ task }) {
   const [isEditing, setIsEditing] = useState(false);
   const [editText, setEditText] = useState(task.text);
-  const [editDate, setEditDate] = useState(task.date ? new Date(task.date) : null); //todosに保存しているtask.dateは文字列なのでバグる。DatePickerで使うためにオブジェクトに戻す（homeのtaskDateと同じ型）
+  const [editDate, setEditDate] = useState(task.date ? new Date(task.date) : null); //DatePicker用にオブジェクトに戻す
   const [isFading, setIsFading] = useState(false);
+
+  const { editTask, deleteTask, toggleTaskStatus } = useTodoStore();
 
   const handleSave = () => {
     const editDateString = dayjs(editDate).format("YYYY-MM-DD")
-    editTask(task.id, editText, editDateString);
+    editTask(task.id, {
+      text: editText,
+      date: editDateString,
+    });
     setIsEditing(false);
   };
 
   const handleToggle = () => {
-    // フェードアウト開始
     if (!task.completed) {
       setIsFading(true);
-      // 3秒後に実際のトグル処理
-      setTimeout(() => toggleTask(task.id), 1000);
+      setTimeout(() => toggleTaskStatus(task.id), 1000);
     } else {
-      // 未完了に戻すときは即時
-      toggleTask(task.id);
+      // 未完了に戻すときは即時。今後完了済みリストもどこかに表示する
+      toggleTaskStatus(task.id);
     }
   };
-
-  console.log("エディットデイト：", editDate)
-
 
   return (
     <li className={`
@@ -44,58 +43,24 @@ export function TodoItem({ task, toggleTask, deleteTask, editTask }) {
         ${isFading ? style.fadeOut : ""}
       `}>
 
-      {isEditing ? (
-        <>
-          <div>
-            <input
-              type="text"
-              value={editText}
-              onChange={(e) => { setEditText(e.target.value) }}
-              className={style.todoEditInput}
-            />
-            <DatePicker
-              className="text-xs text-gray-400 underline"
-              selected={editDate}
-              onChange={(date) => setEditDate(date)}
-              dateFormat="yyyy-MM-dd"
-              placeholderText={task.date}
-            />
-          </div>
-          <button onClick={handleSave} className={style.saveBtn}>
-            <FaRegSave />
-          </button>
-          <button
-            className={style.deleteBtn}
-            onClick={() => deleteTask(task.id)}
-          >
-            <FaRegTrashCan />
-          </button>
-
-        </>
-      ) : (
-        <>
-          <input
-            type="checkbox"
-            className={style.todoCheckbox}
-            checked={task.completed || isFading} // フェードアウト中はチェック済みに見せる
-            onChange={handleToggle}
-          />
-          <span className={style.todoText}>{task.text}</span>
-          <button
-            className={style.editBtn}
-            onClick={() => setIsEditing(true)}
-          >
-            <FaRegEdit />
-          </button>
-          <button
-            className={style.deleteBtn}
-            onClick={() => deleteTask(task.id)}
-          >
-            <FaRegTrashCan />
-          </button>
-          <span className="absolute bottom-1 left-4 text-xs text-gray-400">{task.date}</span>
-        </>
-      )}
+      {isEditing ?
+        <TodoItemEditor
+          editText={editText}
+          setEditText={setEditText}
+          editDate={editDate}
+          setEditDate={setEditDate}
+          onSave={handleSave}
+          onDelete={() => deleteTask(task.id)}
+        />
+        :
+        <TodoItemView
+          task={task}
+          isFading={isFading}
+          onToggle={handleToggle}
+          onEdit={() => setIsEditing(true)}
+          onDelete={() => deleteTask(task.id)}
+        />
+      }
     </li>
   );
 }
