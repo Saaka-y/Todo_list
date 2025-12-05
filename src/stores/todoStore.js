@@ -23,5 +23,12 @@ export const useTodoStore = create((set, get) => ({
     if (isInitialized) {
       localStorage.setItem("todos", JSON.stringify(todoList));
     }
+  },
+
+  //todoListを新しくする
+  setNewTodoList: (newTask) => {
+    const { todoList } = get();
+    set({ todoList: [...todoList, newTask] });
   }
+
 })) 
