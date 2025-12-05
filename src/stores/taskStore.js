@@ -1,6 +1,8 @@
 // @/stores/taskStore.js
-import { create } from "zustand";
 import dayjs from "dayjs";
+import { create } from "zustand";
+
+// Form用
 
 export const useTaskStore = create((set, get) => ({
   selectedTaskId: null,       // 編集中のタスクID
@@ -24,14 +26,14 @@ export const useTaskStore = create((set, get) => ({
 
   // 新規タスクオブジェクト作成用
   createTask: () => {
-    const { currentTaskText, taskDate } = get();
-    if (!currentTaskText || !taskDate) return null;
+    const { currentTaskText, currentTaskDate } = get();
+    if (!currentTaskText || !currentTaskDate) return null;
 
     return {
       id: Date.now(),
       text: currentTaskText.trim(),
       completed: false,
-      date: dayjs(taskDate).format("YYYY-MM-DD")
+      date: dayjs(currentTaskDate).format("YYYY-MM-DD")
     };
   }
 
