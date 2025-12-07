@@ -3,18 +3,19 @@ import style from "@/components/TodoItem/TodoItem.module.css";
 import dayjs from "dayjs";
 import { useState } from "react";
 import { useTodoStore } from "@/stores/todoStore";
+import { dayToString } from "@/utils/dayToString";
 import { TodoItemEditor } from "@/components/TodoItem/TodoItemEditor";
 import { TodoItemView } from "@/components/TodoItem/TodoItemView";
 
 export function TodoItem({ task }) {
   const [isEditing, setIsEditing] = useState(false);
+  const [isFading, setIsFading] = useState(false);
   const [editText, setEditText] = useState(task.text);
   const [editDate, setEditDate] = useState(task.date ? new Date(task.date) : null); //DatePicker用にオブジェクトに戻す
-  const [isFading, setIsFading] = useState(false);
   const { editTask, deleteTask, toggleTaskStatus } = useTodoStore();
 
   const handleSave = () => {
-    const editDateString = dayjs(editDate).format("YYYY-MM-DD")
+    const editDateString = dayToString(editDate);
     editTask(task.id, {
       text: editText,
       date: editDateString,
