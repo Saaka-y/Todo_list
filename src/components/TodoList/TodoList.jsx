@@ -1,5 +1,5 @@
-//@/components/TodoList.jsx
-import { ListHeading } from "@/components/ListHeading";
+//@/components/TodoList/TodoList.jsx
+import { ListHeading } from "@/components/TodoList/ListHeading";
 import { TodoItem } from "@/components/TodoItem/TodoItem";
 import { useFilterTodos } from "@/hooks/useFilterTodos";
 

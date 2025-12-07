@@ -2,7 +2,7 @@
 
 import Head from "next/head";
 import { TodoForm } from "@/components/TodoForm";
-import { TodoList } from "@/components/TodoList";
+import { TodoList } from "@/components/TodoList/TodoList";
 import { Header } from "@/components/Header/Header";
 
 export default function Upcoming() {
