@@ -1,6 +1,6 @@
-//@/components/Header.jsx
+//@/components/Header/Header.jsx
 
-import style from "@/components/Header.module.css";
+import style from "@/components/Header/Header.module.css";
 import Link from "next/link";
 import { CiLight, CiDark } from "react-icons/ci";
 import { useGreeting } from "@/hooks/useGreeting";

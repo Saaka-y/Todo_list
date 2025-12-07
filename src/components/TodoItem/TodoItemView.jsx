@@ -1,5 +1,5 @@
-// @/components/TodoItemView.jsx
-import style from "@/components/TodoItem.module.css";
+// @/components/TodoItem/TodoItemView.jsx
+import style from "@/components/TodoItem/TodoItem.module.css";
 import { FaRegEdit } from "react-icons/fa";
 import { FaRegTrashCan } from "react-icons/fa6"
 

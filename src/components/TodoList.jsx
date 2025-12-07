@@ -1,6 +1,6 @@
 //@/components/TodoList.jsx
 import { ListMessage } from "@/components/ListMessage";
-import { TodoItem } from "@/components/TodoItem";
+import { TodoItem } from "@/components/TodoItem/TodoItem";
 import { useFilterTodos } from "@/hooks/useFilterTodos";
 
 export function TodoList({ page, filterType }) {

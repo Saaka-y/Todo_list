@@ -73,7 +73,7 @@ edit input
 .todoEditInput {
   font-size: 0.8rem;
   margin-left: 36px;
-  flex-grow: 1;
+  flex: 1 1 auto;
   min-width: 0;
   color: var(--text-color);
   text-decoration: underline;
