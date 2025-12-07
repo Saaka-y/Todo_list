@@ -8,7 +8,6 @@ export const useTodoStore = create((set, get) => ({
   todoList: [],
   isInitialized: false, // ページ遷移時にtodoListが空配列で上書きされるのを防ぐ
 
-  // --- Actions（状態をどう使うか、変化させる関数）
   // 初回ロード 使うときはuseEffect([])
   initLocalStorage: () => {
     const saved = localStorage.getItem("todos");
@@ -18,7 +17,6 @@ export const useTodoStore = create((set, get) => ({
     set({ isInitialized: true });
   },
 
-  // todoList が変化したときに保存（初期化後のみ）
   //　使うときはuseEffect ([todoList, isInitialized])
   updateLocalStorage: () => {
     const { todoList, isInitialized } = get(); //stateはgetで取得

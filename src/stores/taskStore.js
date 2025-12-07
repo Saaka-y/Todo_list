@@ -1,28 +1,28 @@
 // @/stores/taskStore.js
-import dayjs from "dayjs";
 import { create } from "zustand";
+import { dayToString } from "@/utils/dayToString.js";
 
 // Form用
 
 export const useTaskStore = create((set, get) => ({
-  selectedTaskId: null,       // 編集中のタスクID
-  currentTaskText: "",         // 入力中のテキスト
+  selectedTaskId: null, // 編集中のタスクID
+  currentTaskText: "", // 入力中のテキスト
   currentStatus: false,
-  currentTaskDate: null,              // 入力中の期日（Dateオブジェクト）
+  currentTaskDate: null,  // 入力中の期日（Dateオブジェクト）
 
   // フォームに入力した値をセット
   setSelectedTaskId: (id) => set({ selectedTaskId: id }),
   setCurrentTaskText: (text) => set({ currentTaskText: text }),
-  setCurrentStatus: (bool) => set({ currentStatus: bool}),
+  setCurrentStatus: (bool) => set({ currentStatus: bool }),
   setCurrentTaskDate: (date) => set({ currentTaskDate: date }),
 
   // フォームをリセット
   resetTask: () =>
-  set({
-    selectedTaskId: null,
-    currentTaskText: "",
-    currentTaskDate: null,
-  }),
+    set({
+      selectedTaskId: null,
+      currentTaskText: "",
+      currentTaskDate: null,
+    }),
 
   // 新規タスクオブジェクト作成用
   createTask: () => {
@@ -33,9 +33,9 @@ export const useTaskStore = create((set, get) => ({
       id: Date.now(),
       text: currentTaskText.trim(),
       completed: false,
-      date: dayjs(currentTaskDate).format("YYYY-MM-DD")
+      date: dayToString(currentTaskDate)
     };
   }
 
-  
+
 }));

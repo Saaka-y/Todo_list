@@ -6,7 +6,7 @@ import { useTodoStore } from "@/stores/todoStore";
 import { useTaskStore } from "@/stores/taskStore";
 
 export function TodoForm() {
-  const { addTask } = useTodoStore();
+  const addTask = useTodoStore((state) => state.addTask);
   const { currentTaskText, currentTaskDate, setCurrentTaskText, setCurrentTaskDate, createTask, resetTask } = useTaskStore();
 
   // add button event

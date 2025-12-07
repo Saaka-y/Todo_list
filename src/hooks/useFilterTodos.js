@@ -3,7 +3,7 @@ import { useMemo } from "react";
 import { useTodoStore } from "@/stores/todoStore";
 
 export function useFilterTodos(filterType) {
-  const { todoList } = useTodoStore();
+  const todoList = useTodoStore((state) => state.todoList);
   const today = new Date().toISOString().split("T")[0];
 
   const filteredTodos = useMemo(() => {

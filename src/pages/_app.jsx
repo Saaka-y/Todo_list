@@ -8,7 +8,7 @@ import { useEffect } from "react";
 
 export default function App({ Component, pageProps }) {
   const { todoList, isInitialized, initLocalStorage, updateLocalStorage } = useTodoStore();
-  const { initDarkMode} = useDarkModeStore();
+  const initDarkMode = useDarkModeStore((state) => state.initDarkMode);
 
   useEffect(() => {
     initLocalStorage();
@@ -20,7 +20,7 @@ export default function App({ Component, pageProps }) {
 
   useEffect(() => {
     initDarkMode();
-  },[])
+  }, [])
 
   console.log(todoList)
 
