@@ -28,7 +28,7 @@ export function TodoForm() {
     if (e.target.value.length > 40) {
       return;
     } else {
-      setCurrentTaskText(e.target.value.trim())
+      setCurrentTaskText(e.target.value)
     }
   }
 
