@@ -17,13 +17,13 @@ export function TodoForm() {
       alert("Please set the deadline.");
       return;
     }
-    // 入力がある場合新しいtaskオブジェクトを作成
+    // Create new task object if input exists
     const newTask = createTask();
     addTask(newTask);
     resetTask();
   }
 
-  // 文字数制限
+  // Character limit
   const handleInput = (e) => {
     if (e.target.value.length > 40) {
       return;

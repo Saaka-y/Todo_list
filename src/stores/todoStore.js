@@ -1,14 +1,14 @@
 // @/stores/todoStore.js
 import { create } from "zustand";
 
-// Todo list 一覧管理用
+// For managing the todo list
 
 export const useTodoStore = create((set, get) => ({
-  // --- State（ただの値、初期値を書く）
+  // --- State (initial values)
   todoList: [],
-  isInitialized: false, // ページ遷移時にtodoListが空配列で上書きされるのを防ぐ
+  isInitialized: false, // Prevents todoList from being overwritten with empty array on page transitions
 
-  // 初回ロード 使うときはuseEffect([])
+  // Initial load - use with useEffect([])
   initLocalStorage: () => {
     const saved = localStorage.getItem("todos");
     if (saved !== null) {
@@ -17,9 +17,9 @@ export const useTodoStore = create((set, get) => ({
     set({ isInitialized: true });
   },
 
-  //　使うときはuseEffect ([todoList, isInitialized])
+  // Use with useEffect([todoList, isInitialized])
   updateLocalStorage: () => {
-    const { todoList, isInitialized } = get(); //stateはgetで取得
+    const { todoList, isInitialized } = get(); // Get state with get()
     if (isInitialized) {
       localStorage.setItem("todos", JSON.stringify(todoList));
     }

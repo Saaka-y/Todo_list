@@ -10,7 +10,7 @@ export function TodoItemView({ task, isFading, onToggle, onEdit, onDelete }) {
       <input
         type="checkbox"
         className={style.todoCheckbox}
-        checked={task.completed || isFading} // フェードアウト中はチェック済みに見せる
+        checked={task.completed || isFading} // Show as checked during fade out
         onChange={onToggle}
       />
       <span className={style.todoText}>{task.text}</span>

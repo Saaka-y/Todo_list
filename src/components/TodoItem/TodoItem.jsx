@@ -1,6 +1,5 @@
 // @/components/TodoItem/TodoItem.jsx
 import style from "@/components/TodoItem/TodoItem.module.css";
-import dayjs from "dayjs";
 import { useState } from "react";
 import { useTodoStore } from "@/stores/todoStore";
 import { dayToString } from "@/utils/dayToString";
@@ -11,7 +10,7 @@ export function TodoItem({ task }) {
   const [isEditing, setIsEditing] = useState(false);
   const [isFading, setIsFading] = useState(false);
   const [editText, setEditText] = useState(task.text);
-  const [editDate, setEditDate] = useState(task.date ? new Date(task.date) : null); //DatePicker用にオブジェクトに戻す
+  const [editDate, setEditDate] = useState(task.date ? new Date(task.date) : null); // Convert back to Date object for DatePicker
   const { editTask, deleteTask, toggleTaskStatus } = useTodoStore();
 
   const handleSave = () => {
@@ -28,7 +27,7 @@ export function TodoItem({ task }) {
       setIsFading(true);
       setTimeout(() => toggleTaskStatus(task.id), 1000);
     } else {
-      // 未完了に戻すときは即時。今後、完了済みリストもどこかに表示する
+      // When uncompleting, do it immediately. In the future, may display completed list somewhere
       toggleTaskStatus(task.id);
     }
   };

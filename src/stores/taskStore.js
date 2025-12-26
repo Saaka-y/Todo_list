@@ -2,19 +2,19 @@
 import { create } from "zustand";
 import { dayToString } from "@/utils/dayToString.js";
 
-// Form用
+// For form state management
 
 export const useTaskStore = create((set, get) => ({
-  selectedTaskId: null, // 編集中のタスクID
-  currentTaskText: "", // 入力中のテキスト
-  currentTaskDate: null,  // 入力中の期日（Dateオブジェクト）
+  selectedTaskId: null, // ID of task being edited
+  currentTaskText: "", // Text being input
+  currentTaskDate: null,  // Deadline being input (Date object)
 
-  // フォームに入力した値をセット
+  // Set values entered in form
   setSelectedTaskId: (id) => set({ selectedTaskId: id }),
   setCurrentTaskText: (text) => set({ currentTaskText: text }),
   setCurrentTaskDate: (date) => set({ currentTaskDate: date }),
 
-  // フォームをリセット
+  // Reset form
   resetTask: () =>
     set({
       selectedTaskId: null,
@@ -22,7 +22,7 @@ export const useTaskStore = create((set, get) => ({
       currentTaskDate: null,
     }),
 
-  // 新規タスクオブジェクト作成用
+  // Create new task object
   createTask: () => {
     const { currentTaskText, currentTaskDate } = get();
     if (!currentTaskText || !currentTaskDate) return null;
