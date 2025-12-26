@@ -4,6 +4,7 @@ import "@/styles/globals.css";
 import "react-datepicker/dist/react-datepicker.css";
 import { useTodoStore } from "@/stores/todoStore";
 import { useDarkModeStore } from "@/stores/darkModeStore";
+import { ErrorBoundary } from "@/components/ErrorBoundary";
 import { useEffect } from "react";
 
 export default function App({ Component, pageProps }) {
@@ -12,20 +13,22 @@ export default function App({ Component, pageProps }) {
 
   useEffect(() => {
     initLocalStorage();
-  }, [])
+  }, [initLocalStorage])
 
   useEffect(() => {
     updateLocalStorage();
-  }, [todoList, isInitialized])
+  }, [todoList, isInitialized, updateLocalStorage])
 
   useEffect(() => {
-    initDarkMode();
-  }, [])
-
-  console.log(todoList)
+    const cleanup = initDarkMode();
+    return cleanup;
+  }, [initDarkMode])
 
   return (
-    <Component
-      {...pageProps}
-    />);
+    <ErrorBoundary>
+      <Component
+        {...pageProps}
+      />
+    </ErrorBoundary>
+  );
 }
