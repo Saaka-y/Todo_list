@@ -35,37 +35,6 @@
 - **Tailwind CSS** - レイアウト
 - **Zustand** - 状態管理
 
-## セットアップ
-
-### 前提条件
-- Node.js 20以上
-- npm, yarn, pnpm, bun のいずれか
-
-### インストール
-```bash
-# リポジトリをクローン
-git clone https://github.com/Saaka-y/Todo_list.git
-
-# プロジェクトディレクトリに移動
-cd Todo_list
-
-# 依存関係をインストール
-npm install
-```
-
-### 開発サーバーの起動
-```bash
-npm run dev
-```
-ブラウザで http://localhost:3000 を開いてアプリケーションを表示します。
-
-または、デモサイト https://todo-list-eta-taupe.vercel.app/ にアクセスしてください。
-
-### ビルド
-```bash
-npm run build
-npm start
-```
 
 ## フォルダ構成
 ```
@@ -114,11 +83,6 @@ Node.js の最新版（v22以降）は Next.js 15 との互換性に問題があ
 以降はバグが発生していない。  
 ※ 完全に正解かは不明だが、現時点で安定している。
 
-## ライセンス
-MIT
-
-## 作成者
-Saaka-y
 
 ---
 
@@ -157,37 +121,6 @@ As my first app, I added features without proper planning, which led to many cha
 - **Tailwind CSS** - Layout
 - **Zustand** - State management
 
-## Getting Started
-
-### Requirements
-- Node.js 20+
-- npm, yarn, pnpm, or bun
-
-### Installation
-```bash
-# Clone
-git clone https://github.com/Saaka-y/Todo_list.git
-
-# Navigate
-cd Todo_list
-
-# Install
-npm install
-```
-
-### Development
-```bash
-npm run dev
-```
-Open http://localhost:3000 in your browser.
-
-Or check out the demo at https://todo-list-eta-taupe.vercel.app/
-
-### Build
-```bash
-npm run build
-npm start
-```
 
 ## Project Structure
 ```
@@ -235,9 +168,3 @@ Downgraded from the latest LTS version to v20.
 **Result:**  
 No errors have occurred since.  
 ※ While not certain this is the complete solution, it has been stable so far.
-
-## License
-MIT
-
-## Author
-Saaka-y
