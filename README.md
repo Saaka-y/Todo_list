@@ -1,32 +1,26 @@
-**英語版は下にあります / English version below**
+# Todo List
+シンプルなタスク管理アプリです。私が初めて作ったアプリで、もともとHTML、CSS、JavaScriptで制作していましたが、学習を兼ねてReact（Next.js）で再構築しました。
 
-# 📝 Todo List
-シンプルなタスク管理のためのWebアプリです。これは私が初めて作ったアプリで、もともとHTML、CSS、JavaScriptで制作していましたが、学習を兼ねてReact（Next.js）で再構築しました。
+ デモサイト: https://todo-list-eta-taupe.vercel.app/
 
-🌐 デモサイト: https://todo-list-eta-taupe.vercel.app/
+<div align="center">
+	<img src="./public/demo/light.png" alt="ライトモードのTodoリスト" width="45%" style="margin:8px;" />
+	<img src="./public/demo/dark.png" alt="ダークモードのTodoリスト" width="45%" style="margin:8px;" />
+</div>
 
-## 開発背景
-プログラミングを学び始めてから初めて作成したアプリです。当初はHTML、CSS、vanilla JavaScriptで開発していましたが、React・Next.jsの学習を進める中で、より保守性の高いコードを書きたいと考え、コンポーネントベースで再構築しました。
+## 目的
+このポートフォリオ作品は、 **Reactとコンポーネントベース設計の基礎を学ぶこと**、**想い通りのUIを作ること** そして **UXを意識した開発の実践** を主な目的としています。小規模なプロジェクトを通じて、状態管理、条件付きレンダリング、イベント処理など、React開発の基本的な概念を習得しました。
 
-この再構築の過程で、以下の学習を行いました：
-
-- **Zustand** - グローバル状態管理ライブラリ
-- **コンポーネントベース設計** - 再利用可能で保守しやすいUI構造
-- **UX向上** - 視覚的フィードバックやモバイルファーストの設計
-
-## プロジェクトの目的
-このプロジェクトは **Reactとコンポーネントベース設計の基礎を学ぶこと** と **UXを意識した開発の実践** を主な目的としています。小規模なプロジェクトを通じて、状態管理、条件付きレンダリング、イベント処理など、React開発の基本的な概念を習得しました。
-
-初めてのアプリということもあり、計画なしに機能を追加していった結果、文字列とDateオブジェクトの混在によるバグなど、多くの課題に直面しました（これを機にTypeScriptの学習用に「Hiking Log」を作成）。しかし、これらの経験が次のプロジェクトでの設計ファーストアプローチにつながりました。
+初めてのアプリということもあり、計画なしに機能を追加していった結果、文字列とDateオブジェクトの混在によるバグなど、多くの課題に直面しました（これを機にTypeScriptの学習用に「Hiking Log」を作成）。これ以降は、まず簡単な設計から始めるよう意識しています。
 
 ## 機能
-📝 タスクの追加・削除  
-✅ 完了チェック（視覚的フィードバック付き）  
-🔴 期限切れタスクの赤字 + メインページ表示
-🔍 日付別リストUI（今日、今後、期限切れ）  
-💾 ローカルストレージでのデータ永続化（将来的にはバックエンド・DB連携を予定）  
-🌓 ダークモード対応  
-📱 モバイルファーストUI
+- タスクの追加・削除  
+- 完了チェック（チェック後1秒後に消えるように設定）  
+- 期限切れタスクの赤字 + メインページ表示
+- 日付別リストUI（今日、今後、期限切れ）  
+- ローカルストレージでのデータ永続化（現在認証機能、DB連携実装中）  
+- ダークモード対応  
+- モバイルファーストUI
 
 ## 使った技術
 - **Next.js** - Reactフレームワーク
@@ -83,88 +77,3 @@ Node.js の最新版（v22以降）は Next.js 15 との互換性に問題があ
 以降はバグが発生していない。  
 ※ 完全に正解かは不明だが、現時点で安定している。
 
-
----
-
-# 📝 Todo List (EN)
-A simple web app for managing tasks. This is the first app I ever created, originally built with HTML, CSS, and JavaScript, then rebuilt with React (Next.js) for learning purposes.
-
-🌐 Live Demo: https://todo-list-eta-taupe.vercel.app/
-
-## Background
-This is my first application since I started learning programming. Initially developed with HTML, CSS, and vanilla JavaScript, I decided to rebuild it with a component-based approach as I progressed in learning React and Next.js, aiming to write more maintainable code.
-
-Through this rebuilding process, I learned:
-
-- **Zustand** - Global state management library
-- **Component-based design** - Reusable and maintainable UI structure
-- **UX improvements** - Visual feedback and mobile-first design
-
-## Project Goals
-This project focuses on **learning React and component-based design fundamentals** and **practicing UX-focused development**. Through this small-scale project, I mastered basic React concepts including state management, conditional rendering, and event handling.
-
-As my first app, I added features without proper planning, which led to many challenges such as bugs from mixing strings and Date objects. However, these experiences led to adopting a design-first approach in subsequent projects.
-
-## Features
-📝 Add and delete tasks  
-✅ Complete tasks (with visual feedback)  
-🔴 Highlight expired tasks in red  
-🔍 Filter by date (today, upcoming, expired)  
-💾 Local storage persistence (backend/database integration planned)  
-🌓 Dark mode support  
-📱 Mobile-first UI
-
-## Tech Stack
-- **Next.js** - React framework
-- **JavaScript (ES6+)** - Programming language
-- **CSS Modules** - Styling
-- **Tailwind CSS** - Layout
-- **Zustand** - State management
-
-
-## Project Structure
-```
-Todo_list/
-├── src/
-│   ├── components/
-│   │   ├── Header/          # Header & navigation
-│   │   ├── TodoForm/        # Task creation form
-│   │   ├── TodoItem/        # Task item & editor
-│   │   └── TodoList/        # Main list & heading
-│   ├── hooks/               # Custom hooks
-│   ├── stores/              # Zustand stores
-│   ├── utils/               # Utility functions
-│   └── pages/               # Next.js pages
-└── public/                  # Static assets
-```
-
-## Key Implementation Details
-
-**UX Improvements:**
-- Positioned page navigation buttons in the upper right corner for easy thumb access on mobile devices
-- Implemented a 1-second delay before removing completed tasks to provide visual confirmation
-- Displayed expired tasks in red at the bottom of the Today page to visually emphasize priority
-- Used a custom DatePicker component instead of native `input type="date"` to avoid display inconsistencies across devices and improve placeholder visibility
-
-**Technical Challenges:**
-- Initially mixed string and Date object types for task dates, causing bugs
-- **Solution:** Used Date objects for DatePicker state management while storing dates as strings in task objects for consistency
-
-## Troubleshooting
-
-### Node.js Version Compatibility Issue
-
-**Problem:**  
-Errors occurred every time running `npm run dev`, preventing localhost from starting.
-
-**Cause:**  
-The latest version of Node.js (v22+) appears to have compatibility issues with Next.js 15.
-
-**Solution:**  
-Downgraded from the latest LTS version to v20.  
-※ When installed via Homebrew, it may revert to the latest version after restart.  
-※ Therefore, uninstalled and reinstalled Node.js v20 via nvm using the official command, and set it as the default.
-
-**Result:**  
-No errors have occurred since.  
-※ While not certain this is the complete solution, it has been stable so far.
